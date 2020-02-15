@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.adaming.rh.entities.User;
 
 @Repository
-public interface IUserDAO extends JpaRepository<User, Long> {
+public interface UserIDAO extends JpaRepository<User, Long> {
 
 }

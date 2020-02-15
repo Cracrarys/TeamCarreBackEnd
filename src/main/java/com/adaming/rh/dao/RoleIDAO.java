@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.adaming.rh.entities.Role;
 
 @Repository
-public interface IRoleDAO extends JpaRepository<Role, Long> {
+public interface RoleIDAO extends JpaRepository<Role, Long> {
 
 }
