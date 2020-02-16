@@ -41,12 +41,8 @@
 <!--       	les classes annotées -->
       	<property name="annotatedClasses" >
      			 <value>
-     			 com.adaming.rh.entities.DocumentRH,
-     			 com.adaming.rh.entities.Employe,
-     			 com.adaming.rh.entities.Fourniture,
-     			 com.adaming.rh.entities.FormulaireEmprunt,
-     			 com.adaming.rh.entities.Role,
-     			 com.adaming.rh.entities.User
+     			 com.adaming.myapp.entity.Etudiant,
+     			 com.adaming.myapp.entity.Matiere
      			 </value>
 
       	</property>
