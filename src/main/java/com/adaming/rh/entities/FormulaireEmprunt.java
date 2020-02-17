@@ -111,13 +111,14 @@ public class FormulaireEmprunt {
 	}
 
 	public FormulaireEmprunt(long idFormulaire, String typeFormulaire, String nomFormulaire, Date dateEmprunt,
-			Date dateRetour) {
+			Date dateRetour, Fourniture fourniture) {
 		super();
 		this.idFormulaire = idFormulaire;
 		this.typeFormulaire = typeFormulaire;
 		this.nomFormulaire = nomFormulaire;
 		this.dateEmprunt = dateEmprunt;
 		this.dateRetour = dateRetour;
+		this.fourniture = fourniture;
 	}
 
 	public FormulaireEmprunt(long idFormulaire, String typeFormulaire, String nomFormulaire, Date dateEmprunt,
@@ -137,7 +138,7 @@ public class FormulaireEmprunt {
 	public String toString() {
 		return "FormulaireEmprunt [idFormulaire=" + idFormulaire + ", typeFormulaire=" + typeFormulaire
 				+ ", nomFormulaire=" + nomFormulaire + ", dateEmprunt=" + dateEmprunt + ", dateRetour=" + dateRetour
-				+ ", employe=" + employe + ", fourniture=" + fourniture + "]";
+				+ ", fourniture=" + fourniture + "]";
 	}
 
 }

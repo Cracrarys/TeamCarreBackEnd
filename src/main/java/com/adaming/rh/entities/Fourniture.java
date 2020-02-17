@@ -111,7 +111,7 @@ public class Fourniture {
 	}
 
 	public Fourniture(long idFourniture, String typeFourniture, String nomFourniture, double quantiteDisponible,
-			double quantiteTotale, boolean consommable, List<FormulaireEmprunt> formulaire, List<Employe> employe) {
+			double quantiteTotale, boolean consommable) {
 		super();
 		this.idFourniture = idFourniture;
 		this.typeFourniture = typeFourniture;
@@ -119,15 +119,13 @@ public class Fourniture {
 		this.quantiteDisponible = quantiteDisponible;
 		this.quantiteTotale = quantiteTotale;
 		this.consommable = consommable;
-		this.formulaire = formulaire;
-		this.employe = employe;
 	}
 
 	@Override
 	public String toString() {
 		return "Fourniture [idFourniture=" + idFourniture + ", typeFourniture=" + typeFourniture + ", nomFourniture="
 				+ nomFourniture + ", quantiteDisponible=" + quantiteDisponible + ", quantiteTotale=" + quantiteTotale
-				+ ", consommable=" + consommable + ", formulaire=" + formulaire + ", employe=" + employe + "]";
+				+ ", consommable=" + consommable + "]";
 	}
 
 }

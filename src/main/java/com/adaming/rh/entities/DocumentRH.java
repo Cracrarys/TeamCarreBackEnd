@@ -77,4 +77,10 @@ public class DocumentRH {
 	
 	
 
+	@Override
+	public String toString() {
+		return "DocumentRH [idDocument=" + idDocument + ", typeDocument=" + typeDocument + ", dateEditionDocument="
+				+ dateEditionDocument + ", employe=" + employe + "]";
+	}
+
 }

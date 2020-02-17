@@ -37,7 +37,7 @@ public class Employe {
 	@Column
 	private double salaireEmploye;
 	@Column
-	
+
 	private String typeContratEmploye;
 	@Column
 	@Temporal(TemporalType.DATE)
@@ -168,7 +168,7 @@ public class Employe {
 
 	public Employe(long idEmploye, String nomEmploye, String prenomEmploye, String sexeEmploye, String adresseEmploye,
 			String statutEmploye, double salaireEmploye, String typeContratEmploye, Date dateEntreeEmploye,
-			Date dateSortieEmploye, List<DocumentRH> document) {
+			Date dateSortieEmploye) {
 		super();
 		this.idEmploye = idEmploye;
 		this.nomEmploye = nomEmploye;
@@ -180,7 +180,6 @@ public class Employe {
 		this.typeContratEmploye = typeContratEmploye;
 		this.dateEntreeEmploye = dateEntreeEmploye;
 		this.dateSortieEmploye = dateSortieEmploye;
-		this.document = document;
 	}
 
 	@Override
@@ -188,8 +187,7 @@ public class Employe {
 		return "Employe [idEmploye=" + idEmploye + ", nomEmploye=" + nomEmploye + ", prenomEmploye=" + prenomEmploye
 				+ ", sexeEmploye=" + sexeEmploye + ", adresseEmploye=" + adresseEmploye + ", statutEmploye="
 				+ statutEmploye + ", salaireEmploye=" + salaireEmploye + ", typeContratEmploye=" + typeContratEmploye
-				+ ", dateEntreeEmploye=" + dateEntreeEmploye + ", dateSortieEmploye=" + dateSortieEmploye
-				+ ", document=" + document + ", formulaire=" + formulaire + ", fourniture=" + fourniture + "]";
+				+ ", dateEntreeEmploye=" + dateEntreeEmploye + ", dateSortieEmploye=" + dateSortieEmploye + "]";
 	}
 
 }
