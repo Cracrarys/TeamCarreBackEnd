@@ -62,6 +62,12 @@ public class FormulaireRestController {
 			@PathVariable("idEmp") String idEmp, @PathVariable("idFour") String idFour) {
 		Employe emp = empser.GetByIdEmploye(Long.parseLong(idEmp));
 		Fourniture four = fourser.GetByIdFourniture(Long.parseLong(idFour));
+		if (four.getQuantiteDisponible()>0) {
+			if (four.isConsommable()) {
+				four.setQuantiteTotale(four.getQuantiteTotale()-1);
+			}
+			four.setQuantiteDisponible(four.getQuantiteDisponible()-1);
+		}
 		form.setEmploye(emp);
 		form.setFourniture(four);
 		formser.AjoutFormulaireService(form);

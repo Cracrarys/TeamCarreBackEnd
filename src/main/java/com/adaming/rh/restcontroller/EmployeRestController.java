@@ -122,6 +122,5 @@ public class EmployeRestController {
 			four.setEmploye(lstEmploye);
 			fourser.AjoutFournitureService(four);
 		}
-	}
-	
+	}	
 }
