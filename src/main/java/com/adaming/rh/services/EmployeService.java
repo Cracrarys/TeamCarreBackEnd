@@ -1,6 +1,8 @@
 package com.adaming.rh.services;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +41,22 @@ public class EmployeService {
 
 	public void UpdateEmployeService(Employe empl) {
 		empDAO.saveAndFlush(empl);
+	}
+	
+	public List<Employe> getEmployeByName(String name){
+		List<Employe> lstEmp = empDAO.findAll();
+		if (name!=null) {
+			List<Employe> lstF = new ArrayList<>();
+			ListIterator<Employe> lstIt = lstEmp.listIterator();
+			while (lstIt.hasNext()) {
+				Employe emp = lstIt.next();
+				if (emp.getNomEmploye().contains(name)) {
+					lstF.add(emp);
+				}
+			}
+			return lstF;
+		}else {
+			return lstEmp;
+		}
 	}
 }
