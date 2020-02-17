@@ -15,8 +15,12 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Employe {
 	@Id
 	private long idEmploye;
@@ -41,13 +45,17 @@ public class Employe {
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date dateSortieEmploye;
+	
 	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "employe", orphanRemoval = true)
+	@JsonIgnore
 	private List<DocumentRH> document = new ArrayList<>();
 
 	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "employe", orphanRemoval = true)
+	@JsonIgnore
 	private List<FormulaireEmprunt> formulaire = new ArrayList<>();
 
 	@ManyToMany(mappedBy = "employe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Fourniture> fourniture;
 
 	public long getIdEmploye() {

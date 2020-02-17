@@ -14,9 +14,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.adaming.rh.entities.Employe;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class DocumentRH {
 	@Id
 	private long idDocument;
@@ -72,5 +74,7 @@ public class DocumentRH {
 		this.dateEditionDocument = dateEditionDocument;
 		this.employe = employe;
 	}
+	
+	
 
 }

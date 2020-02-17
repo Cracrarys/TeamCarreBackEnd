@@ -13,9 +13,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class FormulaireEmprunt {
+
 	@Id
 	private long idFormulaire;
 	@Column
@@ -31,6 +35,8 @@ public class FormulaireEmprunt {
 	@ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "employe")
 	private Employe employe;
+	@Column
+	private boolean demandeValidee;
 
 	@ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fourniture")
@@ -83,6 +89,14 @@ public class FormulaireEmprunt {
 	public void setEmploye(Employe employe) {
 		this.employe = employe;
 	}
+	
+	public boolean isDemandeValidee() {
+		return demandeValidee;
+	}
+
+	public void setDemandeValidee(boolean demandeValidee) {
+		this.demandeValidee = demandeValidee;
+	}
 
 	public Fourniture getFourniture() {
 		return fourniture;
@@ -104,6 +118,19 @@ public class FormulaireEmprunt {
 		this.nomFormulaire = nomFormulaire;
 		this.dateEmprunt = dateEmprunt;
 		this.dateRetour = dateRetour;
+	}
+
+	public FormulaireEmprunt(long idFormulaire, String typeFormulaire, String nomFormulaire, Date dateEmprunt,
+			Date dateRetour, Employe employe, boolean demandeValidee, Fourniture fourniture) {
+		super();
+		this.idFormulaire = idFormulaire;
+		this.typeFormulaire = typeFormulaire;
+		this.nomFormulaire = nomFormulaire;
+		this.dateEmprunt = dateEmprunt;
+		this.dateRetour = dateRetour;
+		this.employe = employe;
+		this.demandeValidee = demandeValidee;
+		this.fourniture = fourniture;
 	}
 
 	@Override
