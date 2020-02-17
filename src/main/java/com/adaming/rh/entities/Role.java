@@ -46,7 +46,7 @@ public class Role {
 
 	@Override
 	public String toString() {
-		return "Role [idRole=" + idRole + ", titreRole=" + titreRole + ", user=" + user + "]";
+		return "Role [idRole=" + idRole + ", titreRole=" + titreRole + "]";
 	}
 
 	public Role(long idRole, String titreRole, User user) {
