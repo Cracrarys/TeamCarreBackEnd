@@ -13,7 +13,7 @@ import com.adaming.rh.entities.User;
 import com.adaming.rh.services.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/test/resources/root-context.xml")
+@ContextConfiguration("file:src//test//resources//root-context.xml")
 public class TestDaoUser {
 	@Autowired
 	private UserService userdao;
