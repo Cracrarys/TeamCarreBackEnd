@@ -14,8 +14,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Fourniture {
 	@Id
 	private long idFourniture;
@@ -31,6 +35,7 @@ public class Fourniture {
 	private boolean consommable;
 
 	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "fourniture", orphanRemoval = true)
+	@JsonIgnore
 	private List<FormulaireEmprunt> formulaire = new ArrayList<>();
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

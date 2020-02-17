@@ -9,8 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "users")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class User {
 
 	@Id
@@ -22,6 +26,7 @@ public class User {
 	@Column
 	private boolean activated;
 	@OneToMany(mappedBy = "user")
+	@JsonIgnore
 	private List<Role> roles = new ArrayList<>();
 
 	public long getIdUser() {
