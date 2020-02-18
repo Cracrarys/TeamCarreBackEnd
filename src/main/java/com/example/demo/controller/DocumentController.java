@@ -61,11 +61,11 @@ public class DocumentController {
 	
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public String AjoutDocumentRH(@RequestParam("empall") @ModelAttribute("document") DocumentRH document, Employe emp, ServletRequest req) {
-		List<Employe> listE = new ArrayList<Employe>();
-		List<String> listS = new ArrayList<String>();
-		listS = Arrays.asList(req.getParameterValues("empall"));
-		for(String stri: listS) listE.add(empServ.GetByIdEmploye(Long.parseLong(stri)));
-		document.setEmploye(emp);
+//		List<Employe> listE = new ArrayList<Employe>();
+//		List<String> listS = new ArrayList<String>();
+//		listS = Arrays.asList(req.getParameterValues("empall"));
+//		for(String stri: listS) listE.add(empServ.GetByIdEmploye(Long.parseLong(stri)));
+//		document.setEmploye(emp);
 		docServ.AjoutDocumentService(document);
 		return direction;
 
@@ -87,7 +87,7 @@ public class DocumentController {
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
 	public String getAllDocumentRH(@ModelAttribute("document") DocumentRH document, Employe employe, ModelMap model) {
 		model.addAttribute("listeDocumentRH", docServ.GetAllDocument());
-		model.addAttribute("listeEmploye", empServ.GetAllEmploye());
+//		model.addAttribute("listeEmploye", empServ.GetAllEmploye());
 		return "documentall";
 
 	}

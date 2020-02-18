@@ -39,7 +39,7 @@ public class EmployeController {
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public String AjoutEmploye(@ModelAttribute("employe") Employe employe, ServletRequest req) {
 		empServ.AjoutEmployeService(employe);
-		return "employe";
+		return direction;
 
 	}
 
@@ -54,14 +54,14 @@ public class EmployeController {
 	@RequestMapping(value = "/Supprimer", method = RequestMethod.POST)
 	public String SuppEmploye(@ModelAttribute("employe") Employe employe) {
 		empServ.SupprimerEmployeService(employe);
-		return "employe";
+		return direction;
 
 	}
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
 	public String getAllEmploye(@ModelAttribute("employe") Employe employe, ModelMap model) {
 		model.addAttribute("listeEmploye", empServ.GetAllEmploye());
-		return "employeAll";
+		return "employeall";
 
 	}
 

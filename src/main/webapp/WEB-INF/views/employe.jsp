@@ -17,16 +17,17 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-	<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script>
-	$(function() {
-		$("#datepicker").datepicker();
-	});
-</script>
+
+</script>  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
 <title>Employe</title>
 </head>
 <span class="border-top">
@@ -146,9 +147,33 @@
 			<table>
 				<tr>
 					<td><input class="btn btn-dark" type="submit"
-						value="Ajouter un employé" name="action"></td>
+						value="Ajouter ou modifier un employé" name="action"></td>
 			</table>
 		</form>
+
+	<form action="Supprimer" method="post">
+		<table class="table table-striped table-dark">
+			<tr>
+				<td><input type="text" placeholder="Id" name="idEmploye"></td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-dark" type="submit"
+					value="Supprimer un employe" name="action"></td>
+		</table>
+	</form>
+
+<form action="Chercher" method="get">
+		<table>
+			<tr>
+				<td><input type="text" placeholder="Id" name="idEmploye"></td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-dark" type="submit"
+					value="Chercher un employé" name="action"></td>
+		</table>
+	</form>
 
 
 	</body>

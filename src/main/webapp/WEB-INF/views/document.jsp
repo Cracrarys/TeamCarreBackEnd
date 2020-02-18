@@ -95,7 +95,7 @@
 				<th scope="col">id document</th>
 				<th scope="col">type document</th>
 				<th scope="col">date d'édition document</th>
-				<th scope="col">employé</th>
+<!-- 				<th scope="col">employé</th> -->
 
 
 			</tr>
@@ -108,66 +108,41 @@
 						<option>Contrat de Travail</option>
 				</select></td>
 				<td><input type="text" name="dateEditionDocument"></td>
-				<td><input type="text" name="empall"/>
+<!-- 				<td><input type="text" name="empall"/> -->
 		
 						</td>
 		</table>
 		<table>
 			<tr>
-				<td><input class="btn btn-primary" type="submit"
-					value="Ajouter un employé" name="action"></td>
+				<td><input class="btn btn-dark" type="submit"
+					value="Ajouter ou modifier un document" name="action"></td>
 		</table>
 	</form>
 
-<!-- 	<form action="All" method="get"> -->
 
-<!-- 		<table> -->
-<!-- 			<tr> -->
-<!-- 				<td><input class="btn btn-info" type="submit" -->
-<!-- 					value="Liste des plats" name="action"></td> -->
-<!-- 		</table> -->
-<!-- 	</form> -->
+<form action="Supprimer" method="post">
+		<table class="table table-striped table-dark">
+			<tr>
+				<td><input type="text" placeholder="Id" name="idDocument"></td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-dark" type="submit"
+					value="Supprimer un document" name="action"></td>
+		</table>
+	</form>
 
-<!-- 	<form action="Supprimer" method="post"> -->
-<!-- 		<table> -->
-<!-- 			<tr> -->
-<!-- 				<td><input type="text" placeholder="Id" name="idPlat"></td> -->
-<!-- 		</table> -->
-<!-- 		<table> -->
-<!-- 			<tr> -->
-<!-- 				<td><input class="btn btn-danger" type="submit" -->
-<!-- 					value="Supprimer un plat" name="action"></td> -->
-<!-- 		</table> -->
-<!-- 	</form> -->
-<!-- 	<form action="Chercher" method="get"> -->
-<!-- 		<table> -->
-<!-- 			<tr> -->
-<!-- 				<td><input type="text" placeholder="Id" name="idPlat"></td> -->
-<!-- 		</table> -->
-<!-- 		<table> -->
-<!-- 			<tr> -->
-<!-- 				<td><input class="btn btn-secondary" type="submit" -->
-<!-- 					value="Chercher un plat" name="action"></td> -->
-<!-- 		</table> -->
-<!-- 	</form> -->
-<!-- 	<h1>Liste des plats</h1> -->
-<!-- 	<table class="table table-striped"> -->
-<!-- 		<tr> -->
-<!-- 			<th>Id du plat</th> -->
-<!-- 			<th>Nom du plat</th> -->
-<!-- 			<th>Vegan</th> -->
-<!-- 			<th>Prix</th> -->
+<form action="Chercher" method="get">
+		<table>
+			<tr>
+				<td><input type="text" placeholder="Id" name="idDocument"></td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-dark" type="submit"
+					value="Chercher un document" name="action"></td>
+		</table>
+	</form>
 
-
-<!-- 		</tr> -->
-<%-- 		<c:forEach items="${listePlat}" var="cl"> --%>
-<!-- 			<tr> -->
-<%-- 				<td>${cl.idPlat}</td> --%>
-<%-- 				<td>${cl.nomPlat}</td> --%>
-<%-- 				<td>${cl.vegan}</td> --%>
-<%-- 				<td>${cl.prixPlat}</td> --%>
-<!-- 			</tr> -->
-<%-- 		</c:forEach> --%>
-<!-- 	</table> -->
 </body>
 </html>
