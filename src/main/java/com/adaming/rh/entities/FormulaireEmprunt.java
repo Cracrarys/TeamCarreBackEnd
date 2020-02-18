@@ -27,6 +27,8 @@ public class FormulaireEmprunt {
 	@Column
 	private String nomFormulaire;
 	@Column
+	private int quantite;
+	@Column
 	@Temporal(TemporalType.DATE)
 	private Date dateEmprunt;
 	@Column
@@ -139,6 +141,14 @@ public class FormulaireEmprunt {
 		return "FormulaireEmprunt [idFormulaire=" + idFormulaire + ", typeFormulaire=" + typeFormulaire
 				+ ", nomFormulaire=" + nomFormulaire + ", dateEmprunt=" + dateEmprunt + ", dateRetour=" + dateRetour
 				+ ", fourniture=" + fourniture + "]";
+	}
+
+	public int getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
 	}
 
 }

@@ -62,15 +62,16 @@ public class FormulaireRestController {
 			@PathVariable("idEmp") String idEmp, @PathVariable("idFour") String idFour) {
 		Employe emp = empser.GetByIdEmploye(Long.parseLong(idEmp));
 		Fourniture four = fourser.GetByIdFourniture(Long.parseLong(idFour));
-		if (four.getQuantiteDisponible()>0) {
+		int quantite = form.getQuantite();
+		if (four.getQuantiteDisponible()>=quantite) {
 			if (four.isConsommable()) {
-				four.setQuantiteTotale(four.getQuantiteTotale()-1);
+				four.setQuantiteTotale(four.getQuantiteTotale()-quantite);
 			}
-			four.setQuantiteDisponible(four.getQuantiteDisponible()-1);
+			four.setQuantiteDisponible(four.getQuantiteDisponible()-quantite);
+			form.setEmploye(emp);
+			form.setFourniture(four);
+			formser.AjoutFormulaireService(form);
 		}
-		form.setEmploye(emp);
-		form.setFourniture(four);
-		formser.AjoutFormulaireService(form);
 	}
 	
 	@RequestMapping(value="/getAll", method=RequestMethod.GET)
