@@ -30,6 +30,12 @@ public class FormulaireController {
 
 	String direction = "redirect:All";
 
+	@RequestMapping(value = "/init")
+	public String init() {
+		
+		return "formulaire";
+	}
+	
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public String AjoutFormulaire(@ModelAttribute("formulaire") FormulaireEmprunt formulaire, ServletRequest req) {
 		forServ.AjoutFormulaireService(formulaire);

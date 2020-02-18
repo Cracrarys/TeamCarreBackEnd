@@ -26,6 +26,12 @@ public class UserController {
 	}
 
 	String direction = "redirect:All";
+	
+	@RequestMapping(value = "/init")
+	public String init() {
+		
+		return "user";
+	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public ModelAndView AjoutUtilisateur(@ModelAttribute("user") User user) {

@@ -30,6 +30,12 @@ public class FournitureController {
 
 	String direction = "redirect:All";
 
+	@RequestMapping(value = "/init")
+	public String init() {
+		
+		return "fourniture";
+	}
+	
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public String AjoutFourniture(@ModelAttribute("fourniture") Fourniture fourniture, ServletRequest req) {
 		fouServ.AjoutFournitureService(fourniture);

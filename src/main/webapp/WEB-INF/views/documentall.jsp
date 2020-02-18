@@ -16,7 +16,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>Accueil</title>
+<title>Document</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -86,37 +86,32 @@
 </div>
 </nav>
 </span>
-<div>
 
 
-<!-- <div data-spy="scroll" data-target="#navbar-example3" data-offset="0"> -->
-<!--   <h4 id="item-1">Ressources humaines</h4> -->
-<!--   <p>Bienvenue dans le portail des ressources humaines, vous pouvez ajouter, supprimer ou modifier la liste des employÃ©s (autentification obligatoire)</p> -->
-<!--   <br> -->
-<!--   <button type="button" class="btn btn-secondary"><a href="Employe" style="color: white" >Employe</a></button> -->
-<!--   <br> -->
-<!--   <p> Pour consulter la liste des employÃ©s, cliquez ci-dessous</p> -->
-<!--   <br> -->
-<!--   <button type="button" class="btn btn-secondary"><a href="EmployeAll" style="color: white" >Liste des Employes</a></button> -->
- 
-<!--   <h4 id="item-2">Fournitures</h4> -->
-<!--     <p> Bienvenue dans le stock, pour faire une demande d'emprunt de matÃ©riel, cliquez ci-dessous</p> -->
-<!--   <br> -->
-<!--   <button type="button" class="btn btn-secondary"><a href="FormulaireEmprunt" style="color: white" >Emprunt</a></button> -->
-<!--   <br> -->
-<!--   <p> vous pouvez modifier le stock (autentification obligatoire)</p> -->
-<!--   <br> -->
-<!--   <button type="button" class="btn btn-secondary"><a href="Fourniture" style="color: white" >Fournitures et Stock</a></button> -->
- 
-
-<!--   <h4 id="item-3">Document RH</h4> -->
-<!--   <p>...</p> -->
-
-<!-- </div> -->
-<div>
-
-
-	<P>Il est: ${serverTime}.</P>
-	<p>Bienvenue sur le site de recrutement et ressources humaines</p>
-</div>
+<body>
+		<table class="table table-striped table-dark">
+				<tr>
+				<th scope="col">id document</th>
+				<th scope="col">type document</th>
+				<th scope="col">date d'édition document</th>
+				<th scope="col">employé</th>
+				
+				
+						</tr>
+		<c:forEach items="${listeDocumentRH}" var="cl">
+			<tr>
+				<td>${cl.idDocument}</td>
+				<td>${cl.typeDocument}</td>
+				<td>${cl.dateEditionDocument}</td>
+				<td>${cl.employe}</td>
+			</tr>
+		</c:forEach>
+	</table>
+				
+				
+				
+				
+				
+				
+</body>
 </html>

@@ -29,11 +29,17 @@ public class EmployeController {
 	}
 
 	String direction = "redirect:All";
+	
+	@RequestMapping(value = "/init")
+	public String init() {
+		
+		return "employe";
+	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public String AjoutEmploye(@ModelAttribute("employe") Employe employe, ServletRequest req) {
 		empServ.AjoutEmployeService(employe);
-		return direction;
+		return "employe";
 
 	}
 
@@ -48,14 +54,14 @@ public class EmployeController {
 	@RequestMapping(value = "/Supprimer", method = RequestMethod.POST)
 	public String SuppEmploye(@ModelAttribute("employe") Employe employe) {
 		empServ.SupprimerEmployeService(employe);
-		return direction;
+		return "employe";
 
 	}
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
 	public String getAllEmploye(@ModelAttribute("employe") Employe employe, ModelMap model) {
 		model.addAttribute("listeEmploye", empServ.GetAllEmploye());
-		return "employe";
+		return "employeAll";
 
 	}
 

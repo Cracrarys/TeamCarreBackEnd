@@ -16,7 +16,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>Accueil</title>
+<title>Document</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -87,36 +87,87 @@
 </nav>
 </span>
 <div>
+<body>
+
+<form action="Ajout" method="post">
+		<table class="table table-striped table-dark">
+				<tr>
+				<th scope="col">id document</th>
+				<th scope="col">type document</th>
+				<th scope="col">date d'édition document</th>
+				<th scope="col">employé</th>
 
 
-<!-- <div data-spy="scroll" data-target="#navbar-example3" data-offset="0"> -->
-<!--   <h4 id="item-1">Ressources humaines</h4> -->
-<!--   <p>Bienvenue dans le portail des ressources humaines, vous pouvez ajouter, supprimer ou modifier la liste des employÃ©s (autentification obligatoire)</p> -->
-<!--   <br> -->
-<!--   <button type="button" class="btn btn-secondary"><a href="Employe" style="color: white" >Employe</a></button> -->
-<!--   <br> -->
-<!--   <p> Pour consulter la liste des employÃ©s, cliquez ci-dessous</p> -->
-<!--   <br> -->
-<!--   <button type="button" class="btn btn-secondary"><a href="EmployeAll" style="color: white" >Liste des Employes</a></button> -->
- 
-<!--   <h4 id="item-2">Fournitures</h4> -->
-<!--     <p> Bienvenue dans le stock, pour faire une demande d'emprunt de matÃ©riel, cliquez ci-dessous</p> -->
-<!--   <br> -->
-<!--   <button type="button" class="btn btn-secondary"><a href="FormulaireEmprunt" style="color: white" >Emprunt</a></button> -->
-<!--   <br> -->
-<!--   <p> vous pouvez modifier le stock (autentification obligatoire)</p> -->
-<!--   <br> -->
-<!--   <button type="button" class="btn btn-secondary"><a href="Fourniture" style="color: white" >Fournitures et Stock</a></button> -->
- 
+			</tr>
+		
+			<tr>
+				<td><input type="text" name="idDocument"></td>
+				
+				<td><select class="custom-select" name="typeDocument" size="2">
+						<option>Attestation travail</option>
+						<option>Contrat de Travail</option>
+				</select></td>
+				<td><input type="text" name="dateEditionDocument"></td>
+				<td><input type="text" name="empall"/>
+		
+						</td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-primary" type="submit"
+					value="Ajouter un employé" name="action"></td>
+		</table>
+	</form>
 
-<!--   <h4 id="item-3">Document RH</h4> -->
-<!--   <p>...</p> -->
+<!-- 	<form action="All" method="get"> -->
 
-<!-- </div> -->
-<div>
+<!-- 		<table> -->
+<!-- 			<tr> -->
+<!-- 				<td><input class="btn btn-info" type="submit" -->
+<!-- 					value="Liste des plats" name="action"></td> -->
+<!-- 		</table> -->
+<!-- 	</form> -->
+
+<!-- 	<form action="Supprimer" method="post"> -->
+<!-- 		<table> -->
+<!-- 			<tr> -->
+<!-- 				<td><input type="text" placeholder="Id" name="idPlat"></td> -->
+<!-- 		</table> -->
+<!-- 		<table> -->
+<!-- 			<tr> -->
+<!-- 				<td><input class="btn btn-danger" type="submit" -->
+<!-- 					value="Supprimer un plat" name="action"></td> -->
+<!-- 		</table> -->
+<!-- 	</form> -->
+<!-- 	<form action="Chercher" method="get"> -->
+<!-- 		<table> -->
+<!-- 			<tr> -->
+<!-- 				<td><input type="text" placeholder="Id" name="idPlat"></td> -->
+<!-- 		</table> -->
+<!-- 		<table> -->
+<!-- 			<tr> -->
+<!-- 				<td><input class="btn btn-secondary" type="submit" -->
+<!-- 					value="Chercher un plat" name="action"></td> -->
+<!-- 		</table> -->
+<!-- 	</form> -->
+<!-- 	<h1>Liste des plats</h1> -->
+<!-- 	<table class="table table-striped"> -->
+<!-- 		<tr> -->
+<!-- 			<th>Id du plat</th> -->
+<!-- 			<th>Nom du plat</th> -->
+<!-- 			<th>Vegan</th> -->
+<!-- 			<th>Prix</th> -->
 
 
-	<P>Il est: ${serverTime}.</P>
-	<p>Bienvenue sur le site de recrutement et ressources humaines</p>
-</div>
+<!-- 		</tr> -->
+<%-- 		<c:forEach items="${listePlat}" var="cl"> --%>
+<!-- 			<tr> -->
+<%-- 				<td>${cl.idPlat}</td> --%>
+<%-- 				<td>${cl.nomPlat}</td> --%>
+<%-- 				<td>${cl.vegan}</td> --%>
+<%-- 				<td>${cl.prixPlat}</td> --%>
+<!-- 			</tr> -->
+<%-- 		</c:forEach> --%>
+<!-- 	</table> -->
+</body>
 </html>
