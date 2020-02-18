@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "role")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Role {
 
@@ -20,7 +20,7 @@ public class Role {
 	@Column(name = "rolename")
 	private String titreRole;
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idUser")
+	@JoinColumn(name = "iduser")
 	private User user;
 
 	public long getIdRole() {

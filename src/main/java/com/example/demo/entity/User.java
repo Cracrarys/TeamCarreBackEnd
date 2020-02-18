@@ -13,14 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class User {
 
 	@Id
-	private long idUser;
+	private long iduser;
 	@Column
-	private String login;
+	private String username;
 	@Column
 	private String password;
 	@Column
@@ -30,19 +30,19 @@ public class User {
 	private List<Role> roles = new ArrayList<>();
 
 	public long getIdUser() {
-		return idUser;
+		return iduser;
 	}
 
-	public void setIdUser(long idUser) {
-		this.idUser = idUser;
+	public void setIdUser(long iduser) {
+		this.iduser = iduser;
 	}
 
 	public String getLogin() {
-		return login;
+		return username;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setLogin(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -69,10 +69,10 @@ public class User {
 		this.roles = roles;
 	}
 
-	public User(long idUser, String login, String password, boolean activated) {
+	public User(long iduser, String username, String password, boolean activated) {
 		super();
-		this.idUser = idUser;
-		this.login = login;
+		this.iduser = iduser;
+		this.username = username;
 		this.password = password;
 		this.activated = activated;
 	}
@@ -83,7 +83,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [idUser=" + idUser + ", login=" + login + ", password=" + password + ", activated=" + activated
+		return "User [iduser=" + iduser + ", username=" + username + ", password=" + password + ", activated=" + activated
 				+ ", roles=" + roles + "]";
 	}
 

@@ -26,9 +26,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().dataSource(datasource)
-				.usersByUsernameQuery("select login,password,activated from user where login=?")
+				.usersByUsernameQuery("select username,password,activated from user where username=?")
 				.authoritiesByUsernameQuery(
-						"select u.login, r.rolename from user u, roles r where u.idUser = r.idUser and u.login =? ");
+						"select u.username, r.rolename from user u, roles r where u.iduser = r.iduser and u.username =? ");
 
 	}
 
@@ -36,10 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 //		http.httpBasic().and().authorizeRequests().antMatchers("/Plat/*").hasAnyAuthority("ROLE_Admin", "ROLE_User");
-//		http.httpBasic().and().authorizeRequests().antMatchers("/Role/*").hasAuthority("ROLE_Admin");
-//		http.httpBasic().and().authorizeRequests().antMatchers("/User/*").hasAuthority("ROLE_Admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/Role/*").hasAuthority("ROLE_Admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/User/*").hasAuthority("ROLE_Admin");
 
-		http.formLogin().loginPage("/login").passwordParameter("password").usernameParameter("login")
+		http.formLogin().loginPage("/login").passwordParameter("password").usernameParameter("username")
 				.defaultSuccessUrl("/").failureUrl("/erreur");
 		http.logout().logoutSuccessUrl("/");
 	}
