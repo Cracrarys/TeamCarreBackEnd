@@ -71,7 +71,7 @@ public class DocumentRestController {
 			empser.AjoutEmployeService(emp);
 		}
 	}
-	
+
 	@RequestMapping(value="/getAll", method=RequestMethod.GET)
 	public ResponseEntity<Object> getAllDoc(){
 		return new ResponseEntity<> (docser.GetAllDocument(),HttpStatus.OK);
