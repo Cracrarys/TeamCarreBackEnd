@@ -53,7 +53,7 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="/Employe/init">Modification</a> <a
 							class="dropdown-item" href="/Employe/All">Liste des Employés</a>
-						<a class="dropdown-item" href="/Employe/Chercher">Trouver un
+						<a class="dropdown-item" href="/Employe/find">Trouver un
 							Employé</a>
 					</div></li>
 
@@ -65,7 +65,7 @@
 						<a class="dropdown-item" href="/Fourniture/init">Demande
 							d'emprunt</a> <a class="dropdown-item" href="/Fourniture/All">Liste
 							des Fournitures</a> <a class="dropdown-item"
-							href="/Fourniture/Chercher">Trouver une Fourniture</a>
+							href="/Fourniture/find">Trouver une Fourniture</a>
 					</div></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="/" id="navbarDropdown"
@@ -74,7 +74,7 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="/Document/init">Demande de
 							Document</a> <a class="dropdown-item" href="/Document/All">Liste
-							des demandes </a> <a class="dropdown-item" href="/Document/Chercher">Trouver
+							des demandes </a> <a class="dropdown-item" href="/Document/find">Trouver
 							une demande</a>
 					</div></li>
 
@@ -85,7 +85,7 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="/User/init">Modification</a> <a
 							class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
-						<a class="dropdown-item" href="/User/Chercher">Trouver un
+						<a class="dropdown-item" href="/User/find">Trouver un
 							Utilisateur</a>
 					</div></li>
 

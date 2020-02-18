@@ -59,11 +59,6 @@
 			</tr>
 	
 </table>
-<a class="nav-link" href="/Employe/init" style="color: white"><button
-						type="button" class="btn btn-secondary"> Modification des employés</button></a>
-<a class="nav-link" href="/Employe/All" style="color: white"><button
-						type="button" class="btn btn-secondary"> Liste des employés</button></a>
-<a class="nav-link" href="/" style="color: white"><button
-			type="button" class="btn btn-Dark">Accueil</button></a>
+
 </body>
 </html>

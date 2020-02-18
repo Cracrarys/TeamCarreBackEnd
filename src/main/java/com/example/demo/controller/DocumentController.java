@@ -58,9 +58,14 @@ public class DocumentController {
 		
 		return "document";
 	}
+	@RequestMapping(value = "/find")
+	public String find() {
+		
+		return "documentfind";
+	}
 	
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
-	public String AjoutDocumentRH(@RequestParam("empall") @ModelAttribute("document") DocumentRH document, Employe emp, ServletRequest req) {
+	public String AjoutDocumentRH(@ModelAttribute("document") DocumentRH document, Employe emp, ServletRequest req) {
 //		List<Employe> listE = new ArrayList<Employe>();
 //		List<String> listS = new ArrayList<String>();
 //		listS = Arrays.asList(req.getParameterValues("empall"));
@@ -85,7 +90,7 @@ public class DocumentController {
 	}
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
-	public String getAllDocumentRH(@ModelAttribute("document") DocumentRH document, Employe employe, ModelMap model) {
+	public String getAllDocumentRH(@ModelAttribute("document") DocumentRH document, ModelMap model) {
 		model.addAttribute("listeDocumentRH", docServ.GetAllDocument());
 //		model.addAttribute("listeEmploye", empServ.GetAllEmploye());
 		return "documentall";

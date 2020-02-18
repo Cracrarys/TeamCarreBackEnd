@@ -16,7 +16,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title> Liste des Documents</title>
+<title>Insert title here</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -86,37 +86,28 @@
 </div>
 </nav>
 </span>
-
-
-<h1>Liste des documents édités</h1>
-
-<br>
-
-
 <body>
-		<table class="table table-striped table-dark">
-				<tr>
-				<th scope="col">id document</th>
-				<th scope="col">type document</th>
-				<th scope="col">date d'édition document</th>
 
-				
-				
-						</tr>
-<c:forEach items="${listeDocumentRH}" var="cl">
+<h1>Recherche d'employé</h1>
+
+<form action="Chercher" method="get">
+		<table>
 			<tr>
-				<td>${cl.idDocument}</td>
-				<td>${cl.typeDocument}</td>
-				<td>${cl.dateEditionDocument}</td>
+				<td><input type="text" placeholder="Id" name="idEmploye"></td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-dark" type="submit"
+					value="Chercher un employe" name="action"></td>
+		</table>
+	</form>
+	
+	<a class="nav-link" href="/Employe/init" style="color: white"><button
+						type="button" class="btn btn-secondary"> Modification des employés</button></a>
+<a class="nav-link" href="/Employe/All" style="color: white"><button
+						type="button" class="btn btn-secondary"> Liste des employés</button></a>
+<a class="nav-link" href="/" style="color: white"><button
+			type="button" class="btn btn-dark">Accueil</button></a>
 
-			</tr>
-			</c:forEach>
-	</table>
-				
-		
-				
-				
-				
-				
 </body>
 </html>
