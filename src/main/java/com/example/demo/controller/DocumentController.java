@@ -47,8 +47,8 @@ public class DocumentController {
 
 	@RequestMapping(value = "/init", method = RequestMethod.GET)
 	public String init(ModelMap model) {
-		List<Employe> listeEmp = empServ.GetAllEmploye();
-		Collections.sort(listeEmp, Employe.EmpNameComparator);
+		List<Employe> listeEmp = empServ.getAllEmploye();
+		Collections.sort(listeEmp, Employe.empNameComparator);
 		model.addAttribute("listeEmployebis", listeEmp);
 		return "document";
 	}
@@ -58,41 +58,44 @@ public class DocumentController {
 
 		return "documentfind";
 	}
-	
+
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
-	public String AjoutDocumentRH(@RequestParam("empID") String empID,
+	public String ajoutDocumentRH(@RequestParam("empID") String empID,
 			@ModelAttribute("document") DocumentRH document) {
-		Employe emp = empServ.GetByIdEmploye(Long.parseLong(empID));
+		Employe emp = empServ.getByIdEmploye(Long.parseLong(empID));
 		document.setEmploye(emp);
-		docServ.AjoutDocumentService(document);
+		docServ.ajoutDocumentService(document);
 		return direction;
 
 	}
 
 	@RequestMapping(value = "/Update", method = RequestMethod.POST)
-	public ModelAndView UpdateDocumentRH(@ModelAttribute("document") DocumentRH document) {
-		docServ.UpdateDocumentService(document);
+	public ModelAndView updateDocumentRH(@RequestParam("empID") String empID,
+			@ModelAttribute("document") DocumentRH document) {
+		Employe emp = empServ.getByIdEmploye(Long.parseLong(empID));
+		document.setEmploye(emp);
+		docServ.ajoutDocumentService(document);
 		return new ModelAndView(direction);
 	}
 
 	@RequestMapping(value = "/Supprimer", method = RequestMethod.POST)
-	public String SuppDocumentRH(@RequestParam("docID") String docID) {
-		List<Employe> lstEmp = empServ.GetAllEmploye();
-		List<DocumentRH> lstDoc = docServ.GetAllDocument();
+	public String suppDocumentRH(@RequestParam("docID") String docID) {
+		List<Employe> lstEmp = empServ.getAllEmploye();
+		List<DocumentRH> lstDoc = docServ.getAllDocument();
 
-		DocumentRH doc = docServ.GetByIdDocument(Long.parseLong(docID));
+		DocumentRH doc = docServ.getByIdDocument(Long.parseLong(docID));
 		lstDoc.remove(doc);
-		docServ.SupprimerDocumentService(doc);
+		docServ.ajoutDocumentService(doc);
 
 		for (DocumentRH docRH : lstDoc) {
-			docServ.AjoutDocumentService(docRH);
+			docServ.ajoutDocumentService(docRH);
 		}
 
 		for (Employe emp : lstEmp) {
 			List<DocumentRH> lstDocRH = emp.getDocument();
 			lstDocRH.remove(doc);
 			emp.setDocument(lstDocRH);
-			empServ.AjoutEmployeService(emp);
+			empServ.ajoutEmployeService(emp);
 		}
 		return direction;
 
@@ -100,15 +103,15 @@ public class DocumentController {
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
 	public String getAllDocumentRH(@ModelAttribute("document") DocumentRH document, Employe employe, ModelMap model) {
-		model.addAttribute("listeDocumentRH", docServ.GetAllDocument());
-		model.addAttribute("listeEmploye", empServ.GetAllEmploye());
+		model.addAttribute("listeDocumentRH", docServ.getAllDocument());
+		model.addAttribute("listeEmploye", empServ.getAllEmploye());
 		return "documentall";
 
 	}
 
 	@RequestMapping(value = "/ChercherByID", method = RequestMethod.GET)
 	public String getByIdDocument(@RequestParam("docID") String docID, ModelMap model) {
-		DocumentRH doc = docServ.GetByIdDocument(Long.parseLong(docID));
+		DocumentRH doc = docServ.getByIdDocument(Long.parseLong(docID));
 		model.addAttribute("leDoucumentRH", doc);
 		return "ledocument";
 

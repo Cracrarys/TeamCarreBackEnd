@@ -23,23 +23,23 @@ public class FournitureService {
 		this.fourDAO = fourDAO;
 	}
 
-	public void AjoutFournitureService(Fourniture fourniture) {
+	public void ajoutFournitureService(Fourniture fourniture) {
 		fourDAO.save(fourniture);
 	}
 
-	public void SupprimerFournitureService(Fourniture fourniture) {
+	public void supprimerFournitureService(Fourniture fourniture) {
 		fourDAO.delete(fourniture);
 	}
 
-	public Fourniture GetByIdFourniture(Long idFourniture) {
+	public Fourniture getByIdFourniture(Long idFourniture) {
 		return fourDAO.getOne(idFourniture);
 	}
 
-	public List<Fourniture> GetAllFourniture() {
+	public List<Fourniture> getAllFourniture() {
 		return fourDAO.findAll();
 	}
 
-	public void UpdateFournitureService(Fourniture fourniture) {
+	public void updateFournitureService(Fourniture fourniture) {
 		fourDAO.saveAndFlush(fourniture);
 	}
 	

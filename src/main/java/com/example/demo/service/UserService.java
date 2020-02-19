@@ -22,23 +22,23 @@ public class UserService {
 		this.userdao = userdao;
 	}
 
-	public void AjoutUserService(User user) {
+	public void ajoutUserService(User user) {
 		userdao.save(user);
 	}
 
-	public void SupprimerUserService(User user) {
+	public void supprimerUserService(User user) {
 		userdao.delete(user);
 	}
 
-	public User GetByIdUser(Long idClient) {
+	public User getByIdUser(Long idClient) {
 		return userdao.getOne(idClient);
 	}
 
-	public List<User> GetAllUser() {
+	public List<User> getAllUser() {
 		return userdao.findAll();
 	}
 
-	public void UpdateUserService(User user) {
+	public void updateUserService(User user) {
 		userdao.saveAndFlush(user);
 	}
 

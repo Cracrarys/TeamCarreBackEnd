@@ -72,7 +72,7 @@ public class EmployeController {
 
 	@RequestMapping(value = "/init", method=RequestMethod.GET)
 	public String init(ModelMap model) {
-		model.addAttribute("listeEmploye3", empServ.GetAllEmploye());
+		model.addAttribute("listeEmploye3", empServ.getAllEmploye());
 		return "employe";
 	}
 
@@ -81,36 +81,35 @@ public class EmployeController {
 
 		return "employefind";
 	}
-	
+
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
-	public String AjoutEmploye(@ModelAttribute("employe") Employe employe) {
-		empServ.AjoutEmployeService(employe);
+	public String ajoutEmploye(@ModelAttribute("employe") Employe employe) {
+		empServ.ajoutEmployeService(employe);
 		return direction;
 
 	}
 
 	@RequestMapping(value = "/Update", method = RequestMethod.POST)
-	public ModelAndView UpdateEmploye(@ModelAttribute("employe") Employe employe) {
-
-		empServ.UpdateEmployeService(employe);
+	public ModelAndView updateEmploye(@ModelAttribute("employe") Employe employe) {
+		empServ.updateEmployeService(employe);
 		return new ModelAndView(direction);
 
 	}
 
 	@RequestMapping(value = "/Supprimer", method = RequestMethod.POST)
-	public String SuppEmploye(@RequestParam("empID") String empID) {
+	public String suppEmploye(@RequestParam("empID") String empID) {
 
-		List<Employe> lstEmp = empServ.GetAllEmploye();
-		List<DocumentRH> lstDoc = docServ.GetAllDocument();
-		List<FormulaireEmprunt> lstForm = forServ.GetAllFormulaire();
-		List<Fourniture> lstFour = fourServ.GetAllFourniture();
+		List<Employe> lstEmp = empServ.getAllEmploye();
+		List<DocumentRH> lstDoc = docServ.getAllDocument();
+		List<FormulaireEmprunt> lstForm = forServ.getAllFormulaire();
+		List<Fourniture> lstFour = fourServ.getAllFourniture();
 
-		Employe emp = empServ.GetByIdEmploye(Long.parseLong(empID));
+		Employe emp = empServ.getByIdEmploye(Long.parseLong(empID));
 		lstEmp.remove(emp);
-		empServ.SupprimerEmployeService(emp);
+		empServ.supprimerEmployeService(emp);
 
 		for (Employe empl : lstEmp) {
-			empServ.AjoutEmployeService(empl);
+			empServ.ajoutEmployeService(empl);
 		}
 
 		for (DocumentRH doc : lstDoc) {
@@ -118,7 +117,7 @@ public class EmployeController {
 			if (empl.getIdEmploye() == emp.getIdEmploye()) {
 				doc.setEmploye(null);
 			}
-			docServ.AjoutDocumentService(doc);
+			docServ.ajoutDocumentService(doc);
 		}
 
 		for (FormulaireEmprunt form : lstForm) {
@@ -126,14 +125,14 @@ public class EmployeController {
 			if (empl.getIdEmploye() == emp.getIdEmploye()) {
 				form.setEmploye(null);
 			}
-			forServ.AjoutFormulaireService(form);
+			forServ.ajoutFormulaireService(form);
 		}
 
 		for (Fourniture four : lstFour) {
 			List<Employe> lstEmploye = four.getEmploye();
 			lstEmploye.remove(emp);
 			four.setEmploye(lstEmploye);
-			fourServ.AjoutFournitureService(four);
+			fourServ.ajoutFournitureService(four);
 		}
 		return direction;
 
@@ -141,14 +140,14 @@ public class EmployeController {
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
 	public String getAllEmploye(@ModelAttribute("employe") Employe employe, ModelMap model) {
-		model.addAttribute("listeEmploye", empServ.GetAllEmploye());
+		model.addAttribute("listeEmploye", empServ.getAllEmploye());
 		return "employeall";
 
 	}
 
 	@RequestMapping(value = "/ChercherByID", method = RequestMethod.GET)
 	public String getByIdEmploye(@RequestParam("empID") String empID, ModelMap model) {
-		Employe emp = empServ.GetByIdEmploye(Long.parseLong(empID));
+		Employe emp = empServ.getByIdEmploye(Long.parseLong(empID));
 		model.addAttribute("leEmploye", emp);
 		return "leemploye";
 

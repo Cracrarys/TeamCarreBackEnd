@@ -59,44 +59,44 @@ public class FournitureRestController {
 	
 	@RequestMapping(value="/ajout", method=RequestMethod.POST)
 	public void ajoutFourniture(@RequestBody Fourniture four) {
-		fourser.AjoutFournitureService(four);
+		fourser.ajoutFournitureService(four);
 	}
 	
 	@RequestMapping(value="/getAll", method=RequestMethod.GET)
 	public ResponseEntity<Object> getAllFourniture(){
-		return new ResponseEntity<> (fourser.GetAllFourniture(),HttpStatus.OK);
+		return new ResponseEntity<> (fourser.getAllFourniture(),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/getbyid/{id}", method=RequestMethod.GET)
 	public Fourniture getFournitureId(@PathVariable("id") String id){
-		return fourser.GetByIdFourniture(Long.parseLong(id));
+		return fourser.getByIdFourniture(Long.parseLong(id));
 	}
 	
 	@RequestMapping(value="/supprimer/{id}", method=RequestMethod.DELETE)
 	public void supprimerEmploye(@PathVariable("id") String id) {
-		List<Employe> lstEmp = empser.GetAllEmploye();
-		List<FormulaireEmprunt> lstForm = formser.GetAllFormulaire();
-		List<Fourniture> lstFour = fourser.GetAllFourniture();
+		List<Employe> lstEmp = empser.getAllEmploye();
+		List<FormulaireEmprunt> lstForm = formser.getAllFormulaire();
+		List<Fourniture> lstFour = fourser.getAllFourniture();
 		
-		Fourniture four = fourser.GetByIdFourniture(Long.parseLong(id));
+		Fourniture four = fourser.getByIdFourniture(Long.parseLong(id));
 		lstFour.remove(four);
-		fourser.SupprimerFournitureService(four);
+		fourser.supprimerFournitureService(four);
 		
 		for (Fourniture fourn : lstFour) {
-			fourser.AjoutFournitureService(fourn);
+			fourser.ajoutFournitureService(fourn);
 		}
 		for (Employe emp : lstEmp) {
 			List<Fourniture> lstFourni = emp.getFourniture();
 			lstFourni.remove(four);
 			emp.setFourniture(lstFourni);
-			empser.AjoutEmployeService(emp);
+			empser.ajoutEmployeService(emp);
 		}
 		for (FormulaireEmprunt form : lstForm) {
 			Fourniture fourn = form.getFourniture();
 			if (fourn.getIdFourniture()==four.getIdFourniture()) {
 				form.setFourniture(null);
 			}
-			formser.AjoutFormulaireService(form);
+			formser.ajoutFormulaireService(form);
 		}
 	}
 }

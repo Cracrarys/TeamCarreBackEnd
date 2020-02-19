@@ -24,20 +24,28 @@ import com.example.demo.service.FournitureService;
 @RequestMapping(value = "/Fourniture")
 public class FournitureController {
 	@Autowired
-	private FournitureService fouServ;
+	private FournitureService fourServ;
 
 	@Autowired
-	private FormulaireService forServ;
+	private FormulaireService formuServ;
 
 	@Autowired
 	private EmployeService empServ;
 
-	public FournitureService getFouServ() {
-		return fouServ;
+	public FournitureService getFourServ() {
+		return fourServ;
 	}
 
-	public void setFouServ(FournitureService fouServ) {
-		this.fouServ = fouServ;
+	public void setFourServ(FournitureService fourServ) {
+		this.fourServ = fourServ;
+	}
+
+	public FormulaireService getFormuServ() {
+		return formuServ;
+	}
+
+	public void setFormuServ(FormulaireService formuServ) {
+		this.formuServ = formuServ;
 	}
 
 	public EmployeService getEmpServ() {
@@ -48,18 +56,6 @@ public class FournitureController {
 		this.empServ = empServ;
 	}
 
-	public void setForServ(FormulaireService forServ) {
-		this.forServ = forServ;
-	}
-
-	public FournitureService getForServ() {
-		return fouServ;
-	}
-
-	public void setForServ(FournitureService fouServ) {
-		this.fouServ = fouServ;
-	}
-
 	String direction = "redirect:All";
 
 	@RequestMapping(value = "/init")
@@ -67,7 +63,7 @@ public class FournitureController {
 
 		return "fourniture";
 	}
-	
+
 	@RequestMapping(value = "/find")
 	public String find() {
 
@@ -75,58 +71,58 @@ public class FournitureController {
 	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
-	public String AjoutFourniture(@ModelAttribute("fourniture") Fourniture fourniture, ServletRequest req) {
-		fouServ.AjoutFournitureService(fourniture);
+	public String ajoutFourniture(@ModelAttribute("fourniture") Fourniture fourniture, ServletRequest req) {
+		fourServ.ajoutFournitureService(fourniture);
 		return direction;
 
 	}
 
 	@RequestMapping(value = "/Update", method = RequestMethod.POST)
-	public ModelAndView UpdateFourniture(@ModelAttribute("fourniture") Fourniture fourniture) {
-		fouServ.UpdateFournitureService(fourniture);
+	public ModelAndView updateFourniture(@ModelAttribute("fourniture") Fourniture fourniture) {
+		fourServ.updateFournitureService(fourniture);
 		return new ModelAndView(direction);
 	}
 
 	@RequestMapping(value = "/Supprimer", method = RequestMethod.POST)
-	public String SuppFourniture(@RequestParam("fourID") String fourID) {
-		List<Employe> lstEmp = empServ.GetAllEmploye();
-		List<FormulaireEmprunt> lstForm = forServ.GetAllFormulaire();
-		List<Fourniture> lstFour = fouServ.GetAllFourniture();
+	public String suppFourniture(@RequestParam("fourID") String fourID) {
+		List<Employe> lstEmp = empServ.getAllEmploye();
+		List<FormulaireEmprunt> lstForm = formuServ.getAllFormulaire();
+		List<Fourniture> lstFour = fourServ.getAllFourniture();
 
-		Fourniture four = fouServ.GetByIdFourniture(Long.parseLong(fourID));
+		Fourniture four = fourServ.getByIdFourniture(Long.parseLong(fourID));
 		lstFour.remove(four);
-		fouServ.SupprimerFournitureService(four);
+		fourServ.supprimerFournitureService(four);
 
 		for (Fourniture fourn : lstFour) {
-			fouServ.AjoutFournitureService(fourn);
+			fourServ.ajoutFournitureService(fourn);
 		}
 		for (Employe emp : lstEmp) {
 			List<Fourniture> lstFourni = emp.getFourniture();
 			lstFourni.remove(four);
 			emp.setFourniture(lstFourni);
-			empServ.AjoutEmployeService(emp);
+			empServ.ajoutEmployeService(emp);
 		}
 		for (FormulaireEmprunt form : lstForm) {
 			Fourniture fourn = form.getFourniture();
 			if (fourn.getIdFourniture() == four.getIdFourniture()) {
 				form.setFourniture(null);
 			}
-			forServ.AjoutFormulaireService(form);
+			formuServ.ajoutFormulaireService(form);
 		}
 		return direction;
 
 	}
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
-	public String GetAllFourniture(@ModelAttribute("fourniture") Fourniture fourniture, ModelMap model) {
-		model.addAttribute("listeFourniture", fouServ.GetAllFourniture());
+	public String getAllFourniture(@ModelAttribute("fourniture") Fourniture fourniture, ModelMap model) {
+		model.addAttribute("listeFourniture", fourServ.getAllFourniture());
 		return "fourniture";
 
 	}
 
 	@RequestMapping(value = "/Chercher", method = RequestMethod.GET)
 	public String getByIdFourniture(@ModelAttribute("fourniture") Fourniture fourniture, ModelMap model) {
-		model.addAttribute("leFourniture", fouServ.GetByIdFourniture(fourniture.getIdFourniture()));
+		model.addAttribute("leFourniture", fourServ.getByIdFourniture(fourniture.getIdFourniture()));
 		return "lefourniture";
 
 	}
