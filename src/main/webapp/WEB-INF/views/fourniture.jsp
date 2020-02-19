@@ -40,7 +40,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Employe/init">Modification</a>
           <a class="dropdown-item" href="/Employe/All">Liste des Employés</a>
-          <a class="dropdown-item" href="/Employe/Chercher">Trouver un Employé</a>
+          <a class="dropdown-item" href="/Employe/find">Trouver un Employé</a>
         </div>
       </li>
 
@@ -49,9 +49,11 @@
           Fournitures
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Fourniture/init">Demande d'emprunt</a>
+          <a class="dropdown-item" href="/Formulaire/init">Demande d'emprunt</a>
+           <a class="dropdown-item" href="/Formulaire/All">Liste des demandes acceptées </a>
+            <a class="dropdown-item" href="/Formulaire/All2">Liste des demandes en cours </a>
           <a class="dropdown-item" href="/Fourniture/All">Liste des Fournitures</a>
-          <a class="dropdown-item" href="/Fourniture/Chercher">Trouver une Fourniture</a>
+          <a class="dropdown-item" href="/Fourniture/find">Trouver une Fourniture</a>
         </div>
       </li>
 				 <li class="nav-item dropdown">
@@ -60,8 +62,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Document/init">Demande de Document</a>
-          <a class="dropdown-item" href="/Document/All">Liste des demandes </a>
-          <a class="dropdown-item" href="/Document/Chercher">Trouver une demande</a>
+         <a class="dropdown-item" href="/Document/All">Liste des documents</a>
+          <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
         </div>
       </li>
 
@@ -72,10 +74,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
-          <a class="dropdown-item" href="/User/Chercher">Trouver un Utilisateur</a>
+          <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
         </div>
       </li>
-
 
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
@@ -86,10 +87,93 @@
 </div>
 </nav>
 </span>
-<div>
-<body>
-<f:view>
 
-</f:view>
+
+
+<body>
+	<form>
+		<table class="table table-striped table-dark">
+			<tr>
+				<th scope="col">id fourniture</th>
+				<th scope="col">type fourniture</th>
+				<th scope="col">nom fourniture</th>
+				<th scope="col">quantité disponible</th>
+				<th scope="col">quantité totale</th>
+				<th scope="col">consommable</th>
+				
+			</tr>
+					<c:forEach items="${listeFourniture}" var="cl">
+			<tr>
+				<td>${cl.idFourniture}</td>
+				<td>${cl.typeFourniture}</td>
+				<td>${cl.nomFourniture}</td>
+				<td>${cl.quantiteDisponible}</td>
+				<td>${cl.quantiteTotale}</td>
+				<td>${cl.consommable}</td>
+				
+				
+			</tr>
+		</c:forEach>
+			</table>
+			</form>
+			
+	<form action="Ajout" method="post">
+		<table class="table table-striped table-dark">
+			<tr>
+				<th scope="col">id fourniture</th>
+				<th scope="col">type fourniture</th>
+				<th scope="col">nom fourniture</th>
+				<th scope="col">quantité disponible</th>
+				<th scope="col">quantité totale</th>
+				<th scope="col">consommable</th>
+				
+			</tr>
+			<tr>
+				<td><input type="text" name="idFourniture"></td>
+
+				<td><select class="custom-select" name="typeFourniture" size="2">
+						<option>Informatique</option>
+						<option>Papeterie</option>
+						<option>Bureautique</option>
+				</select></td>
+				<td><input type="text" name="nomFourniture"></td>
+					<td><input type="text" name="quantiteDisponible"></td>
+					
+						<td><input type="text" name="quantiteTotale"></td>
+			<td><input type="checkbox" name="consommable" value="true"/>
+						
+				</td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-success" type="submit"
+					value="Ajouter ou modifier une fourniture" name="action"></td>
+		</table>
+	</form>
+
+
+	<form action="Supprimer" method="post">
+		<table class="table table-striped table-dark">
+			<tr>
+				<td><input type="text" placeholder="Id" name="fourID"></td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-danger" type="submit"
+					value="Supprimer une fourniture" name="action"></td>
+		</table>
+	</form>
+
+	<form action="Chercher" method="get">
+		<table class="table table-striped table-dark">
+			<tr>
+				<td><input type="text" placeholder="Id" name="idFourniture"></td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-dark" type="submit"
+					value="Chercher une fourniture" name="action"></td>
+		</table>
+	</form>
 </body>
 </html>

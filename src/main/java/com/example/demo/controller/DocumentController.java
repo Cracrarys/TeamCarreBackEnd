@@ -50,6 +50,12 @@ public class DocumentController {
 		return "document";
 	}
 
+	@RequestMapping(value = "/find")
+	public String find() {
+
+		return "documentfind";
+	}
+	
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public String AjoutDocumentRH(@RequestParam("empID") String empID,
 			@ModelAttribute("document") DocumentRH document) {

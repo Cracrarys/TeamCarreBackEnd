@@ -38,6 +38,22 @@ public class FormulaireService {
 	public List<FormulaireEmprunt> GetAllFormulaire() {
 		return forDAO.findAll();
 	}
+	public List<FormulaireEmprunt> getAllFormulaire(Boolean bool){
+		List<FormulaireEmprunt> lstform = forDAO.findAll();
+		if (bool!=null) {
+			List<FormulaireEmprunt> lstF = new ArrayList<>();
+			ListIterator<FormulaireEmprunt> lstIt = lstform.listIterator();
+			while (lstIt.hasNext()) {
+				FormulaireEmprunt form = lstIt.next();
+				if (form.isDemandeValidee()) {
+					lstF.add(form);
+				}
+			}
+			return lstF;
+		}else {
+			return lstform;
+		}
+	}
 
 	public void UpdateFormulaireService(FormulaireEmprunt form) {
 		forDAO.saveAndFlush(form);
@@ -51,6 +67,22 @@ public class FormulaireService {
 			while (lstIt.hasNext()) {
 				FormulaireEmprunt form = lstIt.next();
 				if (form.getFourniture().getNomFourniture().contains(name)) {
+					lstF.add(form);
+				}
+			}
+			return lstF;
+		}else {
+			return lstform;
+		}
+	}
+	public List<FormulaireEmprunt> getAllFormulaire2 (Boolean bool){
+		List<FormulaireEmprunt> lstform = forDAO.findAll();
+		if (bool!=null) {
+			List<FormulaireEmprunt> lstF = new ArrayList<>();
+			ListIterator<FormulaireEmprunt> lstIt = lstform.listIterator();
+			while (lstIt.hasNext()) {
+				FormulaireEmprunt form = lstIt.next();
+				if (!form.isDemandeValidee()) {
 					lstF.add(form);
 				}
 			}

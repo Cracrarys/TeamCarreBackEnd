@@ -75,6 +75,12 @@ public class EmployeController {
 		return "employe";
 	}
 
+	@RequestMapping(value = "/find")
+	public String find() {
+
+		return "employefind";
+	}
+	
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public String AjoutEmploye(@ModelAttribute("employe") Employe employe) {
 		empServ.AjoutEmployeService(employe);
