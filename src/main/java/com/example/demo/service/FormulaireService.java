@@ -55,6 +55,19 @@ public class FormulaireService {
 			return lstform;
 		}
 	}
+	
+	public List<FormulaireEmprunt> getFormulaireNOK() {
+		List<FormulaireEmprunt> lstform = forDAO.findAll();
+		List<FormulaireEmprunt> lstF = new ArrayList<>();
+		ListIterator<FormulaireEmprunt> lstIt = lstform.listIterator();
+		while (lstIt.hasNext()) {
+			FormulaireEmprunt form = lstIt.next();
+			if (!form.isDemandeValidee()) {
+				lstF.add(form);
+			}
+		}
+		return lstF;
+	}
 
 	public List<FormulaireEmprunt> getAllFormulaire() {
 		return forDAO.findAll();

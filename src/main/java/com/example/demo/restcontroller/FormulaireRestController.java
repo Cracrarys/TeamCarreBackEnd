@@ -81,6 +81,11 @@ public class FormulaireRestController {
 		return new ResponseEntity<> (formser.getAllFormulaire(),HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/getAllNonOk", method=RequestMethod.GET)
+	public ResponseEntity<Object> getAllFormuNonOk(){
+		return new ResponseEntity<> (formser.getFormulaireNOK(),HttpStatus.OK);
+	}
+	
 	@RequestMapping(value="/getbyid/{id}", method=RequestMethod.GET)
 	public FormulaireEmprunt getFormulaireId(@PathVariable("id") String id){
 		return formser.getByIdFormulaire(Long.parseLong(id));
