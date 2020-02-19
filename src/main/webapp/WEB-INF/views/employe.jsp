@@ -87,6 +87,7 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
+          <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
 
@@ -100,7 +101,7 @@
 		</div>
 	</nav>
 </span>
-<div>
+
 	<body>
 
 
@@ -148,17 +149,63 @@
 			<table>
 				<tr>
 					<td><input class="btn btn-success" type="submit"
-						value="Ajouter ou modifier un employé" name="action"></td>
+						value="Ajouter un employé" name="action"></td>
 			</table>
 		</form>
+	<form action="Update" method="post">
+			<table class="table table-striped table-dark">
+				<tr>
+					<th scope="col">id employe</th>
+					<th scope="col">nom employé</th>
+					<th scope="col">prenom employé</th>
+					<th scope="col">sexe employé</th>
+					<th scope="col">adresse employé</th>
+					<th scope="col">statut employé</th>
+					<th scope="col">salaire employé</th>
+					<th scope="col">type de contrat</th>
+					<th scope="col">date d'entrée</th>
+					<th scope="col">date de sortie</th>
 
+
+
+				</tr>
+
+				<tr>
+					<td><input type="text" name="idEmploye"></td>
+					<td><input type="text" name="nomEmploye"></td>
+					<td><input type="text" name="prenomEmploye"></td>
+					<td><select class="custom-select" name="sexeEmploye">
+							<option>Femme</option>
+							<option>Homme</option>
+					</select></td>
+					<td><input type="text" name="adresseEmploye"></td>
+					<td><select class="custom-select" name="statutEmploye">
+							<option>Cadre</option>
+							<option>Employe</option>
+					</select></td>
+					<td><input type="text" name="salaireEmploye"></td>
+					<td><select class="custom-select" name="typeContratEmploye">
+							<option>CDI</option>
+							<option>CDD</option>
+								<option>Interim</option>
+					</select></td>
+					<td><input type="text"  id="datepicker1" class="datepicker" name="dateEntreeEmploye"></td>
+					<td><input type="text"  id="datepicker2" class="datepicker" name="dateSortieEmploye"></td>
+					
+			</table>
+			<table>
+				<tr>
+					<td><input class="btn btn-success" type="submit"
+						value="Modifier un employé" name="action"></td>
+			</table>
+		</form>
+		
 	<form action="Supprimer" method="post">
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="empID"></td>
-		</table>
-		<table>
-			<tr>
+		
+	
 				<td><input class="btn btn-danger" type="submit"
 					value="Supprimer un employe" name="action"></td>
 		</table>
@@ -168,14 +215,43 @@
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="idEmploye"></td>
-		</table>
-		<table>
-			<tr>
+		
+			
 				<td><input class="btn btn-info" type="submit"
 					value="Chercher un employé" name="action"></td>
 		</table>
 	</form>
 
+	<table class="table table-striped table-dark">
+		<tr>
+			<th scope="col">id employe</th>
+			<th scope="col">nom employé</th>
+			<th scope="col">prenom employé</th>
+			<th scope="col">sexe employé</th>
+			<th scope="col">adresse employé</th>
+			<th scope="col">statut employé</th>
+			<th scope="col">salaire employé</th>
+			<th scope="col">type de contrat</th>
+			<th scope="col">date d'entrée</th>
+			<th scope="col">date de sortie</th>
+
+		</tr>
+		<c:forEach items="${listeEmploye3}" var="cl">
+			<tr>
+				<td>${cl.idEmploye}</td>
+				<td>${cl.nomEmploye}</td>
+				<td>${cl.prenomEmploye}</td>
+				<td>${cl.sexeEmploye}</td>
+				<td>${cl.adresseEmploye}</td>
+				<td>${cl.statutEmploye}</td>
+				<td>${cl.salaireEmploye}</td>
+				<td>${cl.typeContratEmploye}</td>
+				<td>${cl.dateEntreeEmploye}</td>
+				<td>${cl.dateSortieEmploye}</td>
+
+			</tr>
+		</c:forEach>
+	</table>
 
 	</body>
 </html>

@@ -16,7 +16,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>role trouve</title>
+<title>Recherche d'utilisateur</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -90,21 +90,14 @@
 </nav>
 </span>
 <body>
-	
-
-	<h1>Role recherché</h1>
-	<table class="table table-striped">
-		<tr>
-			<th>Id</th>
-			<th>Role</th>
-			<th>User</th>
-		</tr>
-
-		<tr>
-			<td>${leRole.idrole}</td>
-			<td>${leRole.rolename}</td>
-			<td>${leRole.user}</td>
-		</tr>
-	</table>
+	<form action="Chercher" method="get">
+		<table class="table table-striped table-dark">
+			<tr>
+				<td><input type="text" placeholder="Identifiant à chercher"
+					name="idUser"></td>
+				<td><input class="btn btn-info" type="submit"
+					value="Chercher un utilisateur" name="action"></td>
+		</table>
+	</form>
 </body>
 </html>
