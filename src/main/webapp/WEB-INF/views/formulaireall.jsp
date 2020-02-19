@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<title>Liste employe</title>
+<title>Liste forumlaires en cours</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -94,41 +94,41 @@
 </nav>
 </span>
 <body>
+<h1>Liste des demandes d'emprunt validées</h1>
 
 
-	<h1>Liste des employés</h1>
-
-	<br>
-	<table class="table table-striped table-dark">
-		<tr>
-			<th scope="col">id employe</th>
-			<th scope="col">nom employé</th>
-			<th scope="col">prenom employé</th>
-			<th scope="col">sexe employé</th>
-			<th scope="col">adresse employé</th>
-			<th scope="col">statut employé</th>
-			<th scope="col">salaire employé</th>
-			<th scope="col">type de contrat</th>
-			<th scope="col">date d'entrée</th>
-			<th scope="col">date de sortie</th>
-
-		</tr>
-		<c:forEach items="${listeEmploye}" var="cl">
+	<form action="Ajout" method="post">
+		<table class="table table-striped table-dark">
 			<tr>
-				<td>${cl.idEmploye}</td>
-				<td>${cl.nomEmploye}</td>
-				<td>${cl.prenomEmploye}</td>
-				<td>${cl.sexeEmploye}</td>
-				<td>${cl.adresseEmploye}</td>
-				<td>${cl.statutEmploye}</td>
-				<td>${cl.salaireEmploye}</td>
-				<td>${cl.typeContratEmploye}</td>
-				<td>${cl.dateEntreeEmploye}</td>
-				<td>${cl.dateSortieEmploye}</td>
+					<th scope="col">id formulaire</th>
+				<th scope="col">type formulaire</th>
+				<th scope="col">nom formulaire</th>
+				<th scope="col">quantité</th>
+				<th scope="col">date d'emprunt</th>
+				<th scope="col">date de retour</th>
+				<th scope="col">employé</th>
+				<th scope="col">validation</th>
+				<th scope="col">foruniture</th>
+
+
+			</tr>
+				<c:forEach items="${listeFormulaire}" var="cl">
+			<tr>
+				<td>${cl.idFormulaire}</td>
+				<td>${cl.typeFormulaire}</td>
+				<td>${cl.nomFormulaire}</td>
+				<td>${cl.quantite}</td>
+				<td>${cl.dateEmprunt}</td>
+				<td>${cl.dateRetour}</td>
+				<td>${cl.employe}</td>
+				<td>${cl.demandeValidee}</td>
+				<td>${cl.fourniture}</td>
+				
 
 			</tr>
 		</c:forEach>
 	</table>
-
+			
+			
 </body>
 </html>

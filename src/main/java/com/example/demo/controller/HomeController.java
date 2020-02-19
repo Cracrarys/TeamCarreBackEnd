@@ -30,41 +30,4 @@ public class HomeController {
 
 		return "home";
 	}
-
-	@RequestMapping(value = "/initEmploye", method = RequestMethod.GET)
-	public String initEmploye() {
-
-		return "redirect:/Employe/All";
-	}
-
-	@RequestMapping(value = "/initDocument", method = RequestMethod.GET)
-	public String initDocument() {
-
-		return "redirect:/Document/All";
-	}
-
-	@RequestMapping(value = "/initFourniture", method = RequestMethod.GET)
-	public String initFourniture() {
-
-		return "redirect:/Fourniture/All";
-	}
-
-	@RequestMapping(value = "/initFormulaire", method = RequestMethod.GET)
-	public String initFormulaire() {
-
-		return "redirect:/Formulaire/All";
-	}
-
-	@RequestMapping(value = "/initRole", method = RequestMethod.GET)
-	public String initRole() {
-
-		return "redirect:/Role/All";
-	}
-
-	@RequestMapping(value = "/initUser", method = RequestMethod.GET)
-	public String initUser() {
-
-		return "redirect:/User/All";
-	}
-
 }

@@ -123,9 +123,9 @@ public class Fourniture {
 
 	@Override
 	public String toString() {
-		return "Fourniture [idFourniture=" + idFourniture + ", typeFourniture=" + typeFourniture + ", nomFourniture="
-				+ nomFourniture + ", quantiteDisponible=" + quantiteDisponible + ", quantiteTotale=" + quantiteTotale
-				+ ", consommable=" + consommable + "]";
+		return "Fourniture [typeFourniture=" + typeFourniture + ", nomFourniture=" + nomFourniture + "]";
 	}
+
+
 
 }

@@ -18,14 +18,13 @@
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
 
-</script>  <title>jQuery UI Datepicker - Default functionality</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#datepicker" ).datepicker();
+    $( ".datepicker" ).datepicker();
   } );
   </script>
 <title>Employe</title>
@@ -73,8 +72,8 @@
 					aria-expanded="false" style="color: white"> Document RH </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="/Document/init">Demande de
-							Document</a> <a class="dropdown-item" href="/Document/All">Liste
-							des demandes </a> <a class="dropdown-item" href="/Document/find">Trouver
+							Document</a>   <a class="dropdown-item" href="/Document/All">Liste des demandes acceptées </a>
+            <a class="dropdown-item" href="/Document/All2">Liste des demandes en cours </a> <a class="dropdown-item" href="/Document/find">Trouver
 							une demande</a>
 					</div></li>
 
@@ -140,13 +139,13 @@
 							<option>CDD</option>
 								<option>Interim</option>
 					</select></td>
-					<td><input type="text" name="dateEntreeEmploye" id="datepicker1" class="datepicker"></td>
-					<td><input type="text" name="dateSortieEmploye" id="datepicker2" class="datepicker"></td>
+					<td><input type="text"  id="datepicker1" class="datepicker" name="dateEntreeEmploye"></td>
+					<td><input type="text"  id="datepicker2" class="datepicker" name="dateSortieEmploye"></td>
 					
 			</table>
 			<table>
 				<tr>
-					<td><input class="btn btn-dark" type="submit"
+					<td><input class="btn btn-success" type="submit"
 						value="Ajouter ou modifier un employé" name="action"></td>
 			</table>
 		</form>
@@ -154,23 +153,23 @@
 	<form action="Supprimer" method="post">
 		<table class="table table-striped table-dark">
 			<tr>
-				<td><input type="text" placeholder="Id" name="idEmploye"></td>
+				<td><input type="text" placeholder="Id" name="empID"></td>
 		</table>
 		<table>
 			<tr>
-				<td><input class="btn btn-dark" type="submit"
+				<td><input class="btn btn-danger" type="submit"
 					value="Supprimer un employe" name="action"></td>
 		</table>
 	</form>
 
 <form action="Chercher" method="get">
-		<table>
+		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="idEmploye"></td>
 		</table>
 		<table>
 			<tr>
-				<td><input class="btn btn-dark" type="submit"
+				<td><input class="btn btn-info" type="submit"
 					value="Chercher un employé" name="action"></td>
 		</table>
 	</form>
