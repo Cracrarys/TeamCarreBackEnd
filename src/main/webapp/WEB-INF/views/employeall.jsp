@@ -80,6 +80,7 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
+          <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
 

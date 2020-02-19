@@ -83,6 +83,7 @@
 						class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
 					<a class="dropdown-item" href="/User/find">Trouver un
 						Utilisateur</a>
+						<a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
 				</div></li>
 
 
@@ -185,9 +186,8 @@
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="fourID"></td>
-		</table>
-		<table>
-			<tr>
+		
+			
 				<td><input class="btn btn-danger" type="submit"
 					value="Supprimer un formulaire" name="action"></td>
 		</table>

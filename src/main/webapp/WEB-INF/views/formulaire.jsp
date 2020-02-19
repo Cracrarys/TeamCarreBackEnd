@@ -89,6 +89,7 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
+         <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
 
@@ -114,7 +115,7 @@
 				<th scope="col">date d'emprunt</th>
 				<th scope="col">date de retour</th>
 				<th scope="col">employé</th>
-				<th scope="col">validation</th>
+				
 				<th scope="col">fourniture</th>
 
 
@@ -159,9 +160,8 @@
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="fourID"></td>
-		</table>
-		<table>
-			<tr>
+		
+			
 				<td><input class="btn btn-danger" type="submit"
 					value="Supprimer un formulaire" name="action"></td>
 		</table>
@@ -171,9 +171,7 @@
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="idFormulaire"></td>
-		</table>
-		<table>
-			<tr>
+	
 				<td><input class="btn btn-info" type="submit"
 					value="Chercher un forumulaire" name="action"></td>
 		</table>

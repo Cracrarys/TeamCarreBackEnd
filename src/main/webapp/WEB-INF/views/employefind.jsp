@@ -16,7 +16,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<title>rechercher un employe</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -74,6 +74,7 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
+        <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
 
@@ -92,12 +93,11 @@
 <h1>Recherche d'employé</h1>
 
 <form action="Chercher" method="get">
-		<table>
+		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="idEmploye"></td>
-		</table>
-		<table>
-			<tr>
+		
+			
 				<td><input class="btn btn-info" type="submit"
 					value="Chercher un employe" name="action"></td>
 		</table>
