@@ -27,6 +27,7 @@ public class UserController {
 
 	String direction = "redirect:All";
 	
+
 	@RequestMapping(value = "/init", method = RequestMethod.GET)
 	public String init(ModelMap model) {
 		model.addAttribute("listeDesUsers2", userServ.getAllUser());

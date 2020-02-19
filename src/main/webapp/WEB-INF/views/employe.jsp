@@ -42,58 +42,6 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-<<<<<<< HEAD
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-	<ul class="navbar-nav mr-auto">
-		<li class="nav-item active"><a class="nav-link" href="/"
-			style="color: white">Accueil <span class="sr-only">(current)</span></a>
-		</li>
-		 <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
-          Secteur Employés
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Employe/init">Modification</a>
-          <a class="dropdown-item" href="/Employe/All">Liste des Employés</a>
-          <a class="dropdown-item" href="/Employe/find">Trouver un Employé</a>
-        </div>
-      </li>
-
-				 <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
-          Fournitures
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Formulaire/init">Demande d'emprunt</a>
-           <a class="dropdown-item" href="/Formulaire/All">Liste des demandes acceptées </a>
-            <a class="dropdown-item" href="/Formulaire/All2">Liste des demandes en cours </a>
-          <a class="dropdown-item" href="/Fourniture/All">Liste des Fournitures</a>
-          <a class="dropdown-item" href="/Fourniture/find">Trouver une Fourniture</a>
-        </div>
-      </li>
-				 <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
-          Document RH
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Document/init">Demande de Document</a>
-         <a class="dropdown-item" href="/Document/All">Liste des documents</a>
-          <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
-        </div>
-      </li>
-
-	 <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
-         Utilisateur
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/User/init">Modification</a>
-          <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
-          <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
-          <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
-        </div>
-      </li>
-=======
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="/"
@@ -144,7 +92,6 @@
 						<a class="dropdown-item" href="/User/find">Trouver un
 							Utilisateur</a>
 					</div></li>
->>>>>>> 115be91debe92e9bca55112f7cf275e44c6f40ba
 
 
 			</ul>
@@ -156,26 +103,6 @@
 		</div>
 	</nav>
 </span>
-<<<<<<< HEAD
-
-	<body>
-
-
-		<form action="Ajout" method="post">
-			<table class="table table-striped table-dark">
-				<tr>
-					<th scope="col">id employe</th>
-					<th scope="col">nom employé</th>
-					<th scope="col">prenom employé</th>
-					<th scope="col">sexe employé</th>
-					<th scope="col">adresse employé</th>
-					<th scope="col">statut employé</th>
-					<th scope="col">salaire employé</th>
-					<th scope="col">type de contrat</th>
-					<th scope="col">date d'entrée</th>
-					<th scope="col">date de sortie</th>
-
-=======
 <body>
 	<form action="Ajout" method="post">
 		<table class="table table-striped table-dark">
@@ -191,7 +118,6 @@
 				<th scope="col">date d'entrée</th>
 				<th scope="col">date de sortie</th>
 			</tr>
->>>>>>> 115be91debe92e9bca55112f7cf275e44c6f40ba
 
 			<tr>
 				<td><input type="text" name="idEmploye"></td>
@@ -239,50 +165,6 @@
 				<th scope="col">date de sortie</th>
 			</tr>
 
-<<<<<<< HEAD
-				<tr>
-					<td><input type="text" name="idEmploye"></td>
-					<td><input type="text" name="nomEmploye"></td>
-					<td><input type="text" name="prenomEmploye"></td>
-					<td><select class="custom-select" name="sexeEmploye">
-							<option>Femme</option>
-							<option>Homme</option>
-					</select></td>
-					<td><input type="text" name="adresseEmploye"></td>
-					<td><select class="custom-select" name="statutEmploye">
-							<option>Cadre</option>
-							<option>Employe</option>
-					</select></td>
-					<td><input type="text" name="salaireEmploye"></td>
-					<td><select class="custom-select" name="typeContratEmploye">
-							<option>CDI</option>
-							<option>CDD</option>
-								<option>Interim</option>
-					</select></td>
-					<td><input type="text"  id="datepicker1" class="datepicker" name="dateEntreeEmploye"></td>
-					<td><input type="text"  id="datepicker2" class="datepicker" name="dateSortieEmploye"></td>
-					
-			</table>
-			<table>
-				<tr>
-					<td><input class="btn btn-success" type="submit"
-						value="Ajouter un employé" name="action"></td>
-			</table>
-		</form>
-	<form action="Update" method="post">
-			<table class="table table-striped table-dark">
-				<tr>
-					<th scope="col">id employe</th>
-					<th scope="col">nom employé</th>
-					<th scope="col">prenom employé</th>
-					<th scope="col">sexe employé</th>
-					<th scope="col">adresse employé</th>
-					<th scope="col">statut employé</th>
-					<th scope="col">salaire employé</th>
-					<th scope="col">type de contrat</th>
-					<th scope="col">date d'entrée</th>
-					<th scope="col">date de sortie</th>
-=======
 			<tr>
 				<td><input type="text" name="idEmploye"></td>
 				<td><input type="text" name="nomEmploye"></td>
@@ -313,48 +195,14 @@
 					value="Modifier un employé" name="action"></td>
 		</table>
 	</form>
->>>>>>> 115be91debe92e9bca55112f7cf275e44c6f40ba
 
-
-
-				</tr>
-
-				<tr>
-					<td><input type="text" name="idEmploye"></td>
-					<td><input type="text" name="nomEmploye"></td>
-					<td><input type="text" name="prenomEmploye"></td>
-					<td><select class="custom-select" name="sexeEmploye">
-							<option>Femme</option>
-							<option>Homme</option>
-					</select></td>
-					<td><input type="text" name="adresseEmploye"></td>
-					<td><select class="custom-select" name="statutEmploye">
-							<option>Cadre</option>
-							<option>Employe</option>
-					</select></td>
-					<td><input type="text" name="salaireEmploye"></td>
-					<td><select class="custom-select" name="typeContratEmploye">
-							<option>CDI</option>
-							<option>CDD</option>
-								<option>Interim</option>
-					</select></td>
-					<td><input type="text"  id="datepicker1" class="datepicker" name="dateEntreeEmploye"></td>
-					<td><input type="text"  id="datepicker2" class="datepicker" name="dateSortieEmploye"></td>
-					
-			</table>
-			<table>
-				<tr>
-					<td><input class="btn btn-success" type="submit"
-						value="Modifier un employé" name="action"></td>
-			</table>
-		</form>
-		
 	<form action="Supprimer" method="post">
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="empID"></td>
-		
-	
+		</table>
+		<table>
+			<tr>
 				<td><input class="btn btn-danger" type="submit"
 					value="Supprimer un employe" name="action"></td>
 		</table>
@@ -364,47 +212,13 @@
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="idEmploye"></td>
-		
-			
+		</table>
+		<table>
+			<tr>
 				<td><input class="btn btn-info" type="submit"
 					value="Chercher un employé" name="action"></td>
 		</table>
 	</form>
 
-<<<<<<< HEAD
-	<table class="table table-striped table-dark">
-		<tr>
-			<th scope="col">id employe</th>
-			<th scope="col">nom employé</th>
-			<th scope="col">prenom employé</th>
-			<th scope="col">sexe employé</th>
-			<th scope="col">adresse employé</th>
-			<th scope="col">statut employé</th>
-			<th scope="col">salaire employé</th>
-			<th scope="col">type de contrat</th>
-			<th scope="col">date d'entrée</th>
-			<th scope="col">date de sortie</th>
-
-		</tr>
-		<c:forEach items="${listeEmploye3}" var="cl">
-			<tr>
-				<td>${cl.idEmploye}</td>
-				<td>${cl.nomEmploye}</td>
-				<td>${cl.prenomEmploye}</td>
-				<td>${cl.sexeEmploye}</td>
-				<td>${cl.adresseEmploye}</td>
-				<td>${cl.statutEmploye}</td>
-				<td>${cl.salaireEmploye}</td>
-				<td>${cl.typeContratEmploye}</td>
-				<td>${cl.dateEntreeEmploye}</td>
-				<td>${cl.dateSortieEmploye}</td>
-
-			</tr>
-		</c:forEach>
-	</table>
-
-	</body>
-=======
 </body>
->>>>>>> 115be91debe92e9bca55112f7cf275e44c6f40ba
 </html>
