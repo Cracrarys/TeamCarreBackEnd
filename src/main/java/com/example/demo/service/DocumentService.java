@@ -23,27 +23,27 @@ public class DocumentService {
 		this.docDAO = docDAO;
 	}
 
-	public void AjoutDocumentService(DocumentRH doc) {
+	public void ajoutDocumentService(DocumentRH doc) {
 		docDAO.save(doc);
 	}
 
-	public void SupprimerDocumentService(DocumentRH doc) {
+	public void supprimerDocumentService(DocumentRH doc) {
 		docDAO.delete(doc);
 	}
 
-	public DocumentRH GetByIdDocument(Long idDocument) {
+	public DocumentRH getByIdDocument(Long idDocument) {
 		return docDAO.getOne(idDocument);
 	}
 
-	public List<DocumentRH> GetAllDocument() {
+	public List<DocumentRH> getAllDocument() {
 		return docDAO.findAll();
 	}
 
-	public void UpdateDocumentService(DocumentRH doc) {
+	public void updateDocumentService(DocumentRH doc) {
 		docDAO.saveAndFlush(doc);
 	}
 	
-	public List<DocumentRH> getDocByEmploye(String name){
+	public List<DocumentRH> getDocByName(String name){
 		List<DocumentRH> lstDocRH = docDAO.findAll();
 		if (name!=null) {
 			List<DocumentRH> lstF = new ArrayList<>();

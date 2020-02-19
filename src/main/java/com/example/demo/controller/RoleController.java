@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,8 +11,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Role;
+import com.example.demo.entity.User;
 import com.example.demo.service.RoleService;
 import com.example.demo.service.UserService;
 
@@ -45,42 +46,55 @@ public class RoleController {
 	
 	@RequestMapping(value = "/init", method =RequestMethod.GET)
 	public String init(ModelMap model) {
-		model.addAttribute("listeDesUsers2", userServ.GetAllUser());
-		model.addAttribute("listeDesRoles2", rolServ.GetAllRole());
+		model.addAttribute("listeDesUsers2", userServ.getAllUser());
+		model.addAttribute("listeDesRoles2", rolServ.getAllRole());
 		return "role";
 	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
-	public String AjoutTache(@ModelAttribute("role") Role role, ServletRequest req) {
-		List<String> liststr = new ArrayList<String>();
-		liststr = Arrays.asList(req.getParameterValues("useID"));
-
+	public String ajoutTache(@ModelAttribute("role") Role role, ServletRequest req) {
+		List<String> liststr = Arrays.asList(req.getParameterValues("useID"));
 		for (String setri : liststr)
-			role.setUser(userServ.GetByIdUser(Long.parseLong(setri)));
-
-		rolServ.AjoutRoleService(role);
+			role.setUser(userServ.getByIdUser(Long.parseLong(setri)));
+		rolServ.ajoutRoleService(role);
 		return direction;
 
 	}
 
 	@RequestMapping(value = "/Supprimer", method = RequestMethod.POST)
-	public String SuppTache(@ModelAttribute("role") Role role) {
-		rolServ.SupprimerRoleService(role);
+	public String suppRole(@RequestParam("roleID") String roleID) {
+		List<User> lstUser = userServ.getAllUser();
+		List<Role> lstRole = rolServ.getAllRole();
+
+		Role role = rolServ.getByIdRole(Long.parseLong(roleID));
+		lstRole.remove(role);
+		rolServ.supprimerRoleService(role);
+
+		for (Role rol : lstRole) {
+			rolServ.ajoutRoleService(rol);
+		}
+
+		for (User use : lstUser) {
+			List<Role> lstRole2 = use.getRoles();
+			lstRole2.remove(role);
+			use.setRoles(lstRole2);
+			userServ.ajoutUserService(use);
+		}
 		return direction;
 
 	}
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
 	public String getAllTache(@ModelAttribute("role") Role role, ModelMap model) {
-		model.addAttribute("listeDesRoles", rolServ.GetAllRole());
-		model.addAttribute("listeDesUsers", userServ.GetAllUser());
+		model.addAttribute("listeDesRoles", rolServ.getAllRole());
+		model.addAttribute("listeDesUsers", userServ.getAllUser());
 		return "role";
 
 	}
 
 	@RequestMapping(value = "/Chercher", method = RequestMethod.GET)
 	public String getByIdRole(@ModelAttribute("role") Role role, ModelMap model) {
-		model.addAttribute("leRole", rolServ.GetByIdRole(role.getIdRole()));
+		model.addAttribute("leRole", rolServ.getByIdRole(role.getIdrole()));
 		return "lerole";
 
 	}

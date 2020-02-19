@@ -23,45 +23,25 @@ public class FormulaireService {
 		this.forDAO = forDAO;
 	}
 
-	public void AjoutFormulaireService(FormulaireEmprunt form) {
+	public void ajoutFormulaireService(FormulaireEmprunt form) {
 		forDAO.save(form);
 	}
 
-	public void SupprimerFormulaireService(FormulaireEmprunt form) {
+	public void updateFormulaireService(FormulaireEmprunt form) {
+		forDAO.saveAndFlush(form);
+	}
+
+	public void supprimerFormulaireService(FormulaireEmprunt form) {
 		forDAO.delete(form);
 	}
 
-	public FormulaireEmprunt GetByIdFormulaire(Long idFormulaire) {
+	public FormulaireEmprunt getByIdFormulaire(Long idFormulaire) {
 		return forDAO.getOne(idFormulaire);
 	}
 
-	public List<FormulaireEmprunt> GetAllFormulaire() {
-		return forDAO.findAll();
-	}
-	public List<FormulaireEmprunt> getAllFormulaire(Boolean bool){
+	public List<FormulaireEmprunt> getFormulaireByName(String name) {
 		List<FormulaireEmprunt> lstform = forDAO.findAll();
-		if (bool!=null) {
-			List<FormulaireEmprunt> lstF = new ArrayList<>();
-			ListIterator<FormulaireEmprunt> lstIt = lstform.listIterator();
-			while (lstIt.hasNext()) {
-				FormulaireEmprunt form = lstIt.next();
-				if (form.isDemandeValidee()) {
-					lstF.add(form);
-				}
-			}
-			return lstF;
-		}else {
-			return lstform;
-		}
-	}
-
-	public void UpdateFormulaireService(FormulaireEmprunt form) {
-		forDAO.saveAndFlush(form);
-	}
-	
-	public List<FormulaireEmprunt> getFormulaireByName(String name){
-		List<FormulaireEmprunt> lstform = forDAO.findAll();
-		if (name!=null) {
+		if (name != null) {
 			List<FormulaireEmprunt> lstF = new ArrayList<>();
 			ListIterator<FormulaireEmprunt> lstIt = lstform.listIterator();
 			while (lstIt.hasNext()) {
@@ -71,13 +51,35 @@ public class FormulaireService {
 				}
 			}
 			return lstF;
-		}else {
+		} else {
 			return lstform;
 		}
 	}
-	public List<FormulaireEmprunt> getAllFormulaire2 (Boolean bool){
+
+	public List<FormulaireEmprunt> getAllFormulaire() {
+		return forDAO.findAll();
+	}
+
+	public List<FormulaireEmprunt> getAllFormulaireTrue(Boolean bool) {
 		List<FormulaireEmprunt> lstform = forDAO.findAll();
-		if (bool!=null) {
+		if (bool != null) {
+			List<FormulaireEmprunt> lstF = new ArrayList<>();
+			ListIterator<FormulaireEmprunt> lstIt = lstform.listIterator();
+			while (lstIt.hasNext()) {
+				FormulaireEmprunt form = lstIt.next();
+				if (form.isDemandeValidee()) {
+					lstF.add(form);
+				}
+			}
+			return lstF;
+		} else {
+			return lstform;
+		}
+	}
+
+	public List<FormulaireEmprunt> getAllFormulaireFalse(Boolean bool) {
+		List<FormulaireEmprunt> lstform = forDAO.findAll();
+		if (bool != null) {
 			List<FormulaireEmprunt> lstF = new ArrayList<>();
 			ListIterator<FormulaireEmprunt> lstIt = lstform.listIterator();
 			while (lstIt.hasNext()) {
@@ -87,7 +89,7 @@ public class FormulaireService {
 				}
 			}
 			return lstF;
-		}else {
+		} else {
 			return lstform;
 		}
 	}

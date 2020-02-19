@@ -1,6 +1,5 @@
 package com.example.demo.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,39 +10,37 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "users")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class User {
 
 	@Id
-	private long idUser;
+	private long iduser;
 	@Column
-	private String login;
+	private String username;
 	@Column
 	private String password;
 	@Column
 	private boolean activated;
 	@OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
 	@JsonIgnore
-	private List<Role> roles = new ArrayList<>();
+	private List<Role> roles;
 
-	public long getIdUser() {
-		return idUser;
+	public long getIduser() {
+		return iduser;
 	}
 
-	public void setIdUser(long idUser) {
-		this.idUser = idUser;
+	public void setIduser(long iduser) {
+		this.iduser = iduser;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -70,10 +67,10 @@ public class User {
 		this.roles = roles;
 	}
 
-	public User(long idUser, String login, String password, boolean activated) {
+	public User(long iduser, String username, String password, boolean activated) {
 		super();
-		this.idUser = idUser;
-		this.login = login;
+		this.iduser = iduser;
+		this.username = username;
 		this.password = password;
 		this.activated = activated;
 	}
@@ -84,8 +81,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [idUser=" + idUser + ", login=" + login + ", password=" + password + ", activated=" + activated
-				+ ", roles=" + roles + "]";
+		return "User [iduser=" + iduser + ", username=" + username + "]";
 	}
 
 }

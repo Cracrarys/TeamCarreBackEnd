@@ -8,35 +8,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @Entity
 @Table(name = "roles")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Role {
 
 	@Id
-	private long idRole;
+	private long idrole;
 	@Column(name = "rolename")
-	private String titreRole;
+	private String rolename;
 	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "idUser")
+	@JoinColumn(name = "iduser")
+
 	private User user;
 
-	public long getIdRole() {
-		return idRole;
+	public long getIdrole() {
+		return idrole;
 	}
 
-	public void setIdRole(long idRole) {
-		this.idRole = idRole;
+	public void setIdrole(long idrole) {
+		this.idrole = idrole;
 	}
 
-	public String getTitreRole() {
-		return titreRole;
+	public String getRolename() {
+		return rolename;
 	}
 
-	public void setTitreRole(String titreRole) {
-		this.titreRole = titreRole;
+	public void setRolename(String rolename) {
+		this.rolename = rolename;
 	}
 
 	public User getUser() {
@@ -47,20 +45,20 @@ public class Role {
 		this.user = user;
 	}
 
-	@Override
-	public String toString() {
-		return "Role [idRole=" + idRole + ", titreRole=" + titreRole + "]";
-	}
-
-	public Role(long idRole, String titreRole, User user) {
+	public Role(long idrole, String rolename, User user) {
 		super();
-		this.idRole = idRole;
-		this.titreRole = titreRole;
+		this.idrole = idrole;
+		this.rolename = rolename;
 		this.user = user;
 	}
 
 	public Role() {
 		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Role [idrole=" + idrole + ", rolename=" + rolename + ", user=" + user + "]";
 	}
 
 }

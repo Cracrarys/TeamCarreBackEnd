@@ -23,29 +23,29 @@ public class EmployeService {
 		this.empDAO = empDAO;
 	}
 
-	public void AjoutEmployeService(Employe empl) {
+	public void ajoutEmployeService(Employe empl) {
 		empDAO.save(empl);
 	}
 
-	public void SupprimerEmployeService(Employe empl) {
+	public void supprimerEmployeService(Employe empl) {
 		empDAO.delete(empl);
 	}
 
-	public Employe GetByIdEmploye(Long idEmploye) {
+	public Employe getByIdEmploye(Long idEmploye) {
 		return empDAO.getOne(idEmploye);
 	}
 
-	public List<Employe> GetAllEmploye() {
+	public List<Employe> getAllEmploye() {
 		return empDAO.findAll();
 	}
 
-	public void UpdateEmployeService(Employe empl) {
+	public void updateEmployeService(Employe empl) {
 		empDAO.saveAndFlush(empl);
 	}
-	
-	public List<Employe> getEmployeByName(String name){
+
+	public List<Employe> getEmployeByName(String name) {
 		List<Employe> lstEmp = empDAO.findAll();
-		if (name!=null) {
+		if (name != null) {
 			List<Employe> lstF = new ArrayList<>();
 			ListIterator<Employe> lstIt = lstEmp.listIterator();
 			while (lstIt.hasNext()) {
@@ -55,7 +55,7 @@ public class EmployeService {
 				}
 			}
 			return lstF;
-		}else {
+		} else {
 			return lstEmp;
 		}
 	}

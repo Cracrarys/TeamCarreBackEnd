@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Employe {
 	@Id
 	private long idEmploye;
@@ -45,7 +46,7 @@ public class Employe {
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date dateSortieEmploye;
-	
+
 	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "employe", orphanRemoval = true)
 	@JsonIgnore
 	private List<DocumentRH> document = new ArrayList<>();
@@ -187,6 +188,14 @@ public class Employe {
 		return "Employe [nomEmploye=" + nomEmploye + ", prenomEmploye=" + prenomEmploye + "]";
 	}
 
+	public static final Comparator<Employe> empNameComparator = new Comparator<Employe>() {
 
+		public int compare(Employe s1, Employe s2) {
+			String emp1 = s1.getNomEmploye().toUpperCase();
+			String emp2 = s2.getNomEmploye().toUpperCase();
+
+			return emp1.compareTo(emp2);
+		}
+	};
 
 }

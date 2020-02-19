@@ -56,14 +56,14 @@ public class FormulaireController {
 
 	String direction = "redirect:All";
 
-	@RequestMapping(value = "/init", method = RequestMethod.GET )
+	@RequestMapping(value = "/init", method = RequestMethod.GET)
 	public String init(ModelMap model) {
-		model.addAttribute("listeEmployebis", empServ.GetAllEmploye());
-		model.addAttribute("ListeFourniturebis", fourServ.GetAllFourniture());
+		model.addAttribute("listeEmployebis", empServ.getAllEmploye());
+		model.addAttribute("ListeFourniturebis", fourServ.getAllFourniture());
 		return "formulaire";
-	
+
 	}
-	
+
 	@RequestMapping(value = "/find")
 	public String find() {
 
@@ -71,13 +71,10 @@ public class FormulaireController {
 	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
-	public String AjoutFormulaire(@ModelAttribute("formulaire") FormulaireEmprunt form,
-			@RequestParam("empID") String empID, @RequestParam("fourID") String fourID, ModelMap model) {
-		
-		model.addAttribute("listeEmployebis", empServ.GetAllEmploye());
-		model.addAttribute("ListeFourniturebis", fourServ.GetAllFourniture());
-		Employe emp = empServ.GetByIdEmploye(Long.parseLong(empID));
-		Fourniture four = fourServ.GetByIdFourniture(Long.parseLong(fourID));
+	public String ajoutFormulaire(@ModelAttribute("formulaire") FormulaireEmprunt form,
+			@RequestParam("empID") String empID, @RequestParam("fourID") String fourID) {
+		Employe emp = empServ.getByIdEmploye(Long.parseLong(empID));
+		Fourniture four = fourServ.getByIdFourniture(Long.parseLong(fourID));
 		int quantite = form.getQuantite();
 		if (four.getQuantiteDisponible() >= quantite) {
 			if (four.isConsommable()) {
@@ -86,67 +83,79 @@ public class FormulaireController {
 			four.setQuantiteDisponible(four.getQuantiteDisponible() - quantite);
 			form.setEmploye(emp);
 			form.setFourniture(four);
-			forServ.AjoutFormulaireService(form);
+			forServ.ajoutFormulaireService(form);
 		}
 		return "redirect:All2";
-
 	}
 
 	@RequestMapping(value = "/Update", method = RequestMethod.POST)
-	public ModelAndView UpdateFormulaire(@ModelAttribute("formulaire") FormulaireEmprunt formulaire) {
-		forServ.UpdateFormulaireService(formulaire);
-		return new ModelAndView(direction);
+	public ModelAndView updateFormulaire(@ModelAttribute("formulaire") FormulaireEmprunt form,
+			@RequestParam("empID") String empID, @RequestParam("fourID") String fourID) {
+		Employe emp = empServ.getByIdEmploye(Long.parseLong(empID));
+		Fourniture four = fourServ.getByIdFourniture(Long.parseLong(fourID));
+		int quantite = form.getQuantite();
+		if (four.getQuantiteDisponible() >= quantite) {
+			if (four.isConsommable()) {
+				four.setQuantiteTotale(four.getQuantiteTotale() - quantite);
+			}
+			four.setQuantiteDisponible(four.getQuantiteDisponible() - quantite);
+			form.setEmploye(emp);
+			form.setFourniture(four);
+			forServ.updateFormulaireService(form);
+		}
+		return new ModelAndView("redirect:All2");
 	}
 
 	@RequestMapping(value = "/Supprimer", method = RequestMethod.POST)
-	public String SuppFormulaire(@RequestParam("fourID") String fourID) {
-		List<FormulaireEmprunt> lstForm = forServ.GetAllFormulaire();
-		List<Employe> lstEmp = empServ.GetAllEmploye();
-		List<Fourniture> lstFour = fourServ.GetAllFourniture();
+	public String suppFormulaire(@RequestParam("fourID") String fourID) {
+		List<FormulaireEmprunt> lstForm = forServ.getAllFormulaire();
+		List<Employe> lstEmp = empServ.getAllEmploye();
+		List<Fourniture> lstFour = fourServ.getAllFourniture();
 
-		FormulaireEmprunt formu = forServ.GetByIdFormulaire(Long.parseLong(fourID));
+		FormulaireEmprunt formu = forServ.getByIdFormulaire(Long.parseLong(fourID));
 		lstForm.remove(formu);
-		forServ.SupprimerFormulaireService(formu);
+		forServ.supprimerFormulaireService(formu);
 
 		for (FormulaireEmprunt form : lstForm) {
-			forServ.AjoutFormulaireService(form);
+			forServ.ajoutFormulaireService(form);
 		}
 
 		for (Employe emp : lstEmp) {
 			List<FormulaireEmprunt> lstFormulaire = emp.getFormulaire();
 			lstFormulaire.remove(formu);
 			emp.setFormulaire(lstFormulaire);
-			empServ.AjoutEmployeService(emp);
+			empServ.ajoutEmployeService(emp);
 		}
 
 		for (Fourniture four : lstFour) {
 			List<FormulaireEmprunt> lstFormulaire = four.getFormulaire();
 			lstFormulaire.remove(formu);
 			four.setFormulaire(lstFormulaire);
-			fourServ.AjoutFournitureService(four);
+			fourServ.ajoutFournitureService(four);
 		}
 		return direction;
 
 	}
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
-	public String getAllFormulaire(@ModelAttribute("formulaire") FormulaireEmprunt formulaire, ModelMap model) {
-		model.addAttribute("listeFormulaire", forServ.getAllFormulaire(true));
+	public String getAllFormulaireTrue(@ModelAttribute("formulaire") FormulaireEmprunt formulaire, ModelMap model) {
+		model.addAttribute("listeFormulaire", forServ.getAllFormulaireTrue(true));
 		return "formulaireall";
 
 	}
+
 	@RequestMapping(value = "/All2", method = RequestMethod.GET)
-	public String getAllFormulaire2(@ModelAttribute("formulaire") FormulaireEmprunt formulaire, ModelMap model) {
-		model.addAttribute("listeFormulaire2", forServ.getAllFormulaire2(false));
-		model.addAttribute("listeEmployebis", empServ.GetAllEmploye());
-		model.addAttribute("ListeFourniturebis", fourServ.GetAllFourniture());
+	public String getAllFormulaireFalse(@ModelAttribute("formulaire") FormulaireEmprunt formulaire, ModelMap model) {
+		model.addAttribute("listeFormulaire2", forServ.getAllFormulaireFalse(false));
+		model.addAttribute("listeEmployebis", empServ.getAllEmploye());
+		model.addAttribute("ListeFourniturebis", fourServ.getAllFourniture());
 		return "formulairevalid";
 
 	}
 
 	@RequestMapping(value = "/Chercher", method = RequestMethod.GET)
 	public String getByIdFormulaire(@ModelAttribute("formulaire") FormulaireEmprunt formulaire, ModelMap model) {
-		model.addAttribute("leFormulaire", forServ.GetByIdFormulaire(formulaire.getIdFormulaire()));
+		model.addAttribute("leFormulaire", forServ.getByIdFormulaire(formulaire.getIdFormulaire()));
 		return "leformulaire";
 
 	}

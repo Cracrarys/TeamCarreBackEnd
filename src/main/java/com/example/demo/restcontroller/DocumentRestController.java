@@ -45,40 +45,40 @@ public class DocumentRestController {
 	
 	@RequestMapping(value="/ajout/{idemp}", method=RequestMethod.POST)
 	public void ajoutDocRH(@RequestBody DocumentRH docRH, @PathVariable String idemp) {
-		Employe emp = empser.GetByIdEmploye(Long.parseLong(idemp));
+		Employe emp = empser.getByIdEmploye(Long.parseLong(idemp));
 		docRH.setEmploye(emp);
-		docser.AjoutDocumentService(docRH);
+		docser.ajoutDocumentService(docRH);
 	}
 	
 	@RequestMapping(value="/supprimer/{idDoc}", method=RequestMethod.DELETE)
 	public void supprDocRHId(@PathVariable String idDoc) {
-		List<Employe> lstEmp = empser.GetAllEmploye();
-		List<DocumentRH> lstDoc = docser.GetAllDocument();
+		List<Employe> lstEmp = empser.getAllEmploye();
+		List<DocumentRH> lstDoc = docser.getAllDocument();
 		
-		DocumentRH doc = docser.GetByIdDocument(Long.parseLong(idDoc));
+		DocumentRH doc = docser.getByIdDocument(Long.parseLong(idDoc));
 		lstDoc.remove(doc);
-		docser.SupprimerDocumentService(doc);
+		docser.supprimerDocumentService(doc);
 		
 		for(DocumentRH docRH : lstDoc) {
-			docser.AjoutDocumentService(docRH);
+			docser.ajoutDocumentService(docRH);
 		}
 		
 		for(Employe emp : lstEmp) {
 			List<DocumentRH> lstDocRH = emp.getDocument();
 			lstDocRH.remove(doc);
 			emp.setDocument(lstDocRH);
-			empser.AjoutEmployeService(emp);
+			empser.ajoutEmployeService(emp);
 		}
 	}
 	
 	@RequestMapping(value="/getAll", method=RequestMethod.GET)
 	public ResponseEntity<Object> getAllDoc(){
-		return new ResponseEntity<> (docser.GetAllDocument(),HttpStatus.OK);
+		return new ResponseEntity<> (docser.getAllDocument(),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/getbyid/{id}", method=RequestMethod.GET)
 	public DocumentRH getDocumentId(@PathVariable("id") String id){
-		return docser.GetByIdDocument(Long.parseLong(id));
+		return docser.getByIdDocument(Long.parseLong(id));
 	}
 	
 }

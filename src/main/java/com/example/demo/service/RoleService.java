@@ -22,23 +22,23 @@ public class RoleService {
 		this.roledao = roledao;
 	}
 
-	public void AjoutRoleService(Role role) {
+	public void ajoutRoleService(Role role) {
 		roledao.save(role);
 	}
 
-	public void SupprimerRoleService(Role role) {
+	public void supprimerRoleService(Role role) {
 		roledao.delete(role);
 	}
 
-	public Role GetByIdRole(Long idClient) {
+	public Role getByIdRole(Long idClient) {
 		return roledao.getOne(idClient);
 	}
 
-	public List<Role> GetAllRole() {
+	public List<Role> getAllRole() {
 		return roledao.findAll();
 	}
 
-	public void UpdateRoleService(Role role) {
+	public void updateRoleService(Role role) {
 		roledao.saveAndFlush(role);
 	}
 
