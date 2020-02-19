@@ -1,10 +1,6 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import javax.servlet.ServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +25,6 @@ public class DocumentController {
 	@Autowired
 
 	private EmployeService empServ;
-	
 
 	public DocumentService getDocServ() {
 		return docServ;
@@ -39,8 +34,6 @@ public class DocumentController {
 		this.docServ = docServ;
 	}
 
-	
-	
 	public EmployeService getEmpServ() {
 		return empServ;
 	}
@@ -49,28 +42,25 @@ public class DocumentController {
 		this.empServ = empServ;
 	}
 
-
-
 	String direction = "redirect:All";
 
-	@RequestMapping(value = "/init")
-	public String init() {
-		
+	@RequestMapping(value = "/init", method = RequestMethod.GET)
+	public String init(ModelMap model) {
+		model.addAttribute("listeEmployebis", empServ.GetAllEmploye());
 		return "document";
 	}
+
 	@RequestMapping(value = "/find")
 	public String find() {
-		
+
 		return "documentfind";
 	}
 	
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
-	public String AjoutDocumentRH(@ModelAttribute("document") DocumentRH document, Employe emp, ServletRequest req) {
-//		List<Employe> listE = new ArrayList<Employe>();
-//		List<String> listS = new ArrayList<String>();
-//		listS = Arrays.asList(req.getParameterValues("empall"));
-//		for(String stri: listS) listE.add(empServ.GetByIdEmploye(Long.parseLong(stri)));
-//		document.setEmploye(emp);
+	public String AjoutDocumentRH(@RequestParam("empID") String empID,
+			@ModelAttribute("document") DocumentRH document) {
+		Employe emp = empServ.GetByIdEmploye(Long.parseLong(empID));
+		document.setEmploye(emp);
 		docServ.AjoutDocumentService(document);
 		return direction;
 
@@ -83,16 +73,32 @@ public class DocumentController {
 	}
 
 	@RequestMapping(value = "/Supprimer", method = RequestMethod.POST)
-	public String SuppDocumentRH(@ModelAttribute("document") DocumentRH document) {
-		docServ.SupprimerDocumentService(document);
+	public String SuppDocumentRH(@RequestParam("docID") String docID) {
+		List<Employe> lstEmp = empServ.GetAllEmploye();
+		List<DocumentRH> lstDoc = docServ.GetAllDocument();
+
+		DocumentRH doc = docServ.GetByIdDocument(Long.parseLong(docID));
+		lstDoc.remove(doc);
+		docServ.SupprimerDocumentService(doc);
+
+		for (DocumentRH docRH : lstDoc) {
+			docServ.AjoutDocumentService(docRH);
+		}
+
+		for (Employe emp : lstEmp) {
+			List<DocumentRH> lstDocRH = emp.getDocument();
+			lstDocRH.remove(doc);
+			emp.setDocument(lstDocRH);
+			empServ.AjoutEmployeService(emp);
+		}
 		return direction;
 
 	}
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
-	public String getAllDocumentRH(@ModelAttribute("document") DocumentRH document, ModelMap model) {
+	public String getAllDocumentRH(@ModelAttribute("document") DocumentRH document, Employe employe, ModelMap model) {
 		model.addAttribute("listeDocumentRH", docServ.GetAllDocument());
-//		model.addAttribute("listeEmploye", empServ.GetAllEmploye());
+		model.addAttribute("listeEmploye", empServ.GetAllEmploye());
 		return "documentall";
 
 	}

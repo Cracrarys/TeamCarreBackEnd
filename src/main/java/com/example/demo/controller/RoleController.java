@@ -42,6 +42,13 @@ public class RoleController {
 	}
 
 	String direction = "redirect:All";
+	
+	@RequestMapping(value = "/init", method =RequestMethod.GET)
+	public String init(ModelMap model) {
+		model.addAttribute("listeDesUsers2", userServ.GetAllUser());
+		model.addAttribute("listeDesRoles2", rolServ.GetAllRole());
+		return "role";
+	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public String AjoutTache(@ModelAttribute("role") Role role, ServletRequest req) {

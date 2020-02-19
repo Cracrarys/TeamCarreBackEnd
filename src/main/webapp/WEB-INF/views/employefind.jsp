@@ -16,7 +16,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<title>rechercher un employe</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -60,7 +60,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Document/init">Demande de Document</a>
-          <a class="dropdown-item" href="/Document/All">Liste des demandes </a>
+      <a class="dropdown-item" href="/Document/All">Liste des demandes acceptées </a>
+            <a class="dropdown-item" href="/Document/All2">Liste des demandes en cours </a>
           <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
         </div>
       </li>
@@ -73,6 +74,7 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
+        <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
 
@@ -91,23 +93,17 @@
 <h1>Recherche d'employé</h1>
 
 <form action="Chercher" method="get">
-		<table>
+		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="idEmploye"></td>
-		</table>
-		<table>
-			<tr>
-				<td><input class="btn btn-dark" type="submit"
+		
+			
+				<td><input class="btn btn-info" type="submit"
 					value="Chercher un employe" name="action"></td>
 		</table>
 	</form>
 	
-	<a class="nav-link" href="/Employe/init" style="color: white"><button
-						type="button" class="btn btn-secondary"> Modification des employés</button></a>
-<a class="nav-link" href="/Employe/All" style="color: white"><button
-						type="button" class="btn btn-secondary"> Liste des employés</button></a>
-<a class="nav-link" href="/" style="color: white"><button
-			type="button" class="btn btn-dark">Accueil</button></a>
+
 
 </body>
 </html>

@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <script src="jquery-3.4.1.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -16,7 +17,12 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>role trouve</title>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<title>Liste formulaires en cours</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -75,7 +81,7 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
-                    <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
+      <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
 
@@ -90,21 +96,41 @@
 </nav>
 </span>
 <body>
-	
+<h1>Liste des demandes d'emprunt validées</h1>
 
-	<h1>Role recherché</h1>
-	<table class="table table-striped">
-		<tr>
-			<th>Id</th>
-			<th>Role</th>
-			<th>User</th>
-		</tr>
 
-		<tr>
-			<td>${leRole.idrole}</td>
-			<td>${leRole.rolename}</td>
-			<td>${leRole.user}</td>
-		</tr>
+
+		<table class="table table-striped table-dark">
+			<tr>
+					<th scope="col">id formulaire</th>
+				<th scope="col">type formulaire</th>
+				<th scope="col">nom formulaire</th>
+				<th scope="col">quantité</th>
+				<th scope="col">date d'emprunt</th>
+				<th scope="col">date de retour</th>
+				<th scope="col">employé</th>
+				<th scope="col">validation</th>
+				<th scope="col">foruniture</th>
+
+
+			</tr>
+				<c:forEach items="${listeFormulaire}" var="cl">
+			<tr>
+				<td>${cl.idFormulaire}</td>
+				<td>${cl.typeFormulaire}</td>
+				<td>${cl.nomFormulaire}</td>
+				<td>${cl.quantite}</td>
+				<td>${cl.dateEmprunt}</td>
+				<td>${cl.dateRetour}</td>
+				<td>${cl.employe}</td>
+				<td>${cl.demandeValidee}</td>
+				<td>${cl.fourniture}</td>
+				
+
+			</tr>
+		</c:forEach>
 	</table>
+			
+			
 </body>
 </html>

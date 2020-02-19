@@ -60,7 +60,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Document/init">Demande de Document</a>
-          <a class="dropdown-item" href="/Document/All">Liste des demandes </a>
+           <a class="dropdown-item" href="/Document/All">Liste des demandes acceptées </a>
+            <a class="dropdown-item" href="/Document/All2">Liste des demandes en cours </a>
           <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
         </div>
       </li>
@@ -73,6 +74,7 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
+        <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
 
@@ -90,22 +92,16 @@
 
 <h1> Recherche de document</h1>
 <form action="Chercher" method="get">
-		<table>
+		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="idDocument"></td>
-		</table>
-		<table>
-			<tr>
-				<td><input class="btn btn-dark" type="submit"
+		
+			
+				<td><input class="btn btn-info" type="submit"
 					value="Chercher un document" name="action"></td>
 		</table>
 	</form>
 	
-		<a class="nav-link" href="/Document/init" style="color: white"><button
-						type="button" class="btn btn-secondary"> Edition de documents</button></a>
-<a class="nav-link" href="/Document/All" style="color: white"><button
-						type="button" class="btn btn-secondary"> Afficher la liste des documents</button></a>
-<a class="nav-link" href="/" style="color: white"><button
-			type="button" class="btn btn-dark">Accueil</button></a>		
+		
 </body>
 </html>

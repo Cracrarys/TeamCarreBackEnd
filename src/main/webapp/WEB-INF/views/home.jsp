@@ -49,7 +49,9 @@
           Fournitures
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Fourniture/init">Demande d'emprunt</a>
+          <a class="dropdown-item" href="/Formulaire/init">Demande d'emprunt</a>
+           <a class="dropdown-item" href="/Formulaire/All">Liste des demandes acceptées </a>
+            <a class="dropdown-item" href="/Formulaire/All2">Liste des demandes en cours </a>
           <a class="dropdown-item" href="/Fourniture/All">Liste des Fournitures</a>
           <a class="dropdown-item" href="/Fourniture/find">Trouver une Fourniture</a>
         </div>
@@ -60,7 +62,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Document/init">Demande de Document</a>
-          <a class="dropdown-item" href="/Document/All">Liste des demandes </a>
+         <a class="dropdown-item" href="/Document/All">Liste des documents</a>
           <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
         </div>
       </li>
@@ -73,6 +75,7 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
+          <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
 
@@ -86,7 +89,7 @@
 </div>
 </nav>
 </span>
-<div>
+
 
 
 <!-- <div data-spy="scroll" data-target="#navbar-example3" data-offset="0"> -->

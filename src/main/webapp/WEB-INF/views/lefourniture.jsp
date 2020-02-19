@@ -16,7 +16,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>role trouve</title>
+<title>Fourniture</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -75,10 +75,9 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
-                    <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
+       <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
-
 
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
@@ -89,22 +88,36 @@
 </div>
 </nav>
 </span>
+
+
+
 <body>
-	
-
-	<h1>Role recherché</h1>
-	<table class="table table-striped">
-		<tr>
-			<th>Id</th>
-			<th>Role</th>
-			<th>User</th>
-		</tr>
-
-		<tr>
-			<td>${leRole.idrole}</td>
-			<td>${leRole.rolename}</td>
-			<td>${leRole.user}</td>
-		</tr>
-	</table>
+<h1>Fourniture recherchée</h1>
+<br>
+	<form>
+		<table class="table table-striped table-dark">
+			<tr>
+				<th scope="col">id fourniture</th>
+				<th scope="col">type fourniture</th>
+				<th scope="col">nom fourniture</th>
+				<th scope="col">quantité disponible</th>
+				<th scope="col">quantité totale</th>
+				<th scope="col">consommable</th>
+				
+			</tr>
+			
+			<tr>
+				<td>${leFourniture.idFourniture}</td>
+				<td>${leFourniture.typeFourniture}</td>
+				<td>${leFourniture.nomFourniture}</td>
+				<td>${leFourniture.quantiteDisponible}</td>
+				<td>${leFourniture.quantiteTotale}</td>
+				<td>${leFourniture.consommable}</td>
+				
+				
+			</tr>
+		
+			</table>
+			</form>
 </body>
 </html>

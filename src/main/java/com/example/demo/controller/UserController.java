@@ -27,14 +27,20 @@ public class UserController {
 
 	String direction = "redirect:All";
 	
-	@RequestMapping(value = "/init")
-	public String init() {
-		
+	@RequestMapping(value = "/init", method = RequestMethod.GET)
+	public String init(ModelMap model) {
+		model.addAttribute("listeDesUsers2", userServ.GetAllUser());
 		return "user";
+	}
+	@RequestMapping(value = "/find")
+	public String find() {
+
+		return "userfind";
 	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
-	public ModelAndView AjoutUtilisateur(@ModelAttribute("user") User user) {
+	public ModelAndView AjoutUtilisateur(@ModelAttribute("user") User user, ModelMap model) {
+
 		userServ.AjoutUserService(user);
 		return new ModelAndView(direction);
 
@@ -57,7 +63,7 @@ public class UserController {
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
 	public String getAllUtilisateur(@ModelAttribute("user") User user, ModelMap model) {
 		model.addAttribute("listeDesUsers", userServ.GetAllUser());
-		return "user";
+		return "userall";
 
 	}
 
