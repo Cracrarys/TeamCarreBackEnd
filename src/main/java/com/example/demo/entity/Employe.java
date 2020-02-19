@@ -188,17 +188,13 @@ public class Employe {
 		return "Employe [nomEmploye=" + nomEmploye + ", prenomEmploye=" + prenomEmploye + "]";
 	}
 
-	public static Comparator<Employe> EmpNameComparator = new Comparator<Employe>() {
+	public static final Comparator<Employe> empNameComparator = new Comparator<Employe>() {
 
 		public int compare(Employe s1, Employe s2) {
-			String Emp1 = s1.getNomEmploye().toUpperCase();
-			String Emp2 = s2.getNomEmploye().toUpperCase();
+			String emp1 = s1.getNomEmploye().toUpperCase();
+			String emp2 = s2.getNomEmploye().toUpperCase();
 
-			// ascending order
-			return Emp1.compareTo(Emp2);
-
-			// descending order
-			// return StudentName2.compareTo(StudentName1);
+			return emp1.compareTo(emp2);
 		}
 	};
 

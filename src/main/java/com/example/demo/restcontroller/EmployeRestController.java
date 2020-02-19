@@ -72,32 +72,32 @@ public class EmployeRestController {
 
 	@RequestMapping(value = "/ajout", method = RequestMethod.POST)
 	public void ajoutEmploye(@RequestBody Employe emp) {
-		empser.AjoutEmployeService(emp);
+		empser.ajoutEmployeService(emp);
 	}
 
 	@RequestMapping(value = "/getAll", method = RequestMethod.GET)
 	public ResponseEntity<Object> getAllEmp() {
-		return new ResponseEntity<>(empser.GetAllEmploye(), HttpStatus.OK);
+		return new ResponseEntity<>(empser.getAllEmploye(), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/getbyid/{id}", method = RequestMethod.GET)
 	public Employe getEmployeId(@PathVariable("id") String id) {
-		return empser.GetByIdEmploye(Long.parseLong(id));
+		return empser.getByIdEmploye(Long.parseLong(id));
 	}
 
 	@RequestMapping(value = "/supprimer/{id}", method = RequestMethod.DELETE)
 	public void supprimerEmploye(@PathVariable("id") String id) {
-		List<Employe> lstEmp = empser.GetAllEmploye();
-		List<DocumentRH> lstDoc = docser.GetAllDocument();
-		List<FormulaireEmprunt> lstForm = formser.GetAllFormulaire();
-		List<Fourniture> lstFour = fourser.GetAllFourniture();
+		List<Employe> lstEmp = empser.getAllEmploye();
+		List<DocumentRH> lstDoc = docser.getAllDocument();
+		List<FormulaireEmprunt> lstForm = formser.getAllFormulaire();
+		List<Fourniture> lstFour = fourser.getAllFourniture();
 
-		Employe emp = empser.GetByIdEmploye(Long.parseLong(id));
+		Employe emp = empser.getByIdEmploye(Long.parseLong(id));
 		lstEmp.remove(emp);
-		empser.SupprimerEmployeService(emp);
+		empser.supprimerEmployeService(emp);
 
 		for (Employe empl : lstEmp) {
-			empser.AjoutEmployeService(empl);
+			empser.ajoutEmployeService(empl);
 		}
 
 		for (DocumentRH doc : lstDoc) {
@@ -105,7 +105,7 @@ public class EmployeRestController {
 			if (empl.getIdEmploye() == emp.getIdEmploye()) {
 				doc.setEmploye(null);
 			}
-			docser.AjoutDocumentService(doc);
+			docser.ajoutDocumentService(doc);
 		}
 
 		for (FormulaireEmprunt form : lstForm) {
@@ -113,14 +113,14 @@ public class EmployeRestController {
 			if (empl.getIdEmploye() == emp.getIdEmploye()) {
 				form.setEmploye(null);
 			}
-			formser.AjoutFormulaireService(form);
+			formser.ajoutFormulaireService(form);
 		}
 
 		for (Fourniture four : lstFour) {
 			List<Employe> lstEmploye = four.getEmploye();
 			lstEmploye.remove(emp);
 			four.setEmploye(lstEmploye);
-			fourser.AjoutFournitureService(four);
+			fourser.ajoutFournitureService(four);
 		}
 	}
 }

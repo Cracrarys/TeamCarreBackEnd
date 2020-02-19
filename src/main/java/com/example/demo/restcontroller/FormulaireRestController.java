@@ -60,8 +60,8 @@ public class FormulaireRestController {
 	@RequestMapping(value="/ajout/{idEmp}/&/{idFour}", method=RequestMethod.POST)
 	public void ajoutFormulaire(@RequestBody FormulaireEmprunt form,
 			@PathVariable("idEmp") String idEmp, @PathVariable("idFour") String idFour) {
-		Employe emp = empser.GetByIdEmploye(Long.parseLong(idEmp));
-		Fourniture four = fourser.GetByIdFourniture(Long.parseLong(idFour));
+		Employe emp = empser.getByIdEmploye(Long.parseLong(idEmp));
+		Fourniture four = fourser.getByIdFourniture(Long.parseLong(idFour));
 		int quantite = form.getQuantite();
 		if (four.getQuantiteDisponible()>=quantite && form.isDemandeValidee()) {
 			if (four.isConsommable()) {
@@ -73,45 +73,45 @@ public class FormulaireRestController {
 		}
 		form.setEmploye(emp);
 		form.setFourniture(four);
-		formser.AjoutFormulaireService(form);
+		formser.ajoutFormulaireService(form);
 	}
 	
 	@RequestMapping(value="/getAll", method=RequestMethod.GET)
 	public ResponseEntity<Object> getAllFormulaire(){
-		return new ResponseEntity<> (formser.GetAllFormulaire(),HttpStatus.OK);
+		return new ResponseEntity<> (formser.getAllFormulaire(),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/getbyid/{id}", method=RequestMethod.GET)
 	public FormulaireEmprunt getFormulaireId(@PathVariable("id") String id){
-		return formser.GetByIdFormulaire(Long.parseLong(id));
+		return formser.getByIdFormulaire(Long.parseLong(id));
 	}
 	
 	@RequestMapping(value="/supprimer/{id}", method=RequestMethod.DELETE)
 	public void supprimerFormulaire(@PathVariable("id") String id) {
-		List<FormulaireEmprunt> lstForm = formser.GetAllFormulaire();
-		List<Employe> lstEmp = empser.GetAllEmploye();
-		List<Fourniture> lstFour = fourser.GetAllFourniture();
+		List<FormulaireEmprunt> lstForm = formser.getAllFormulaire();
+		List<Employe> lstEmp = empser.getAllEmploye();
+		List<Fourniture> lstFour = fourser.getAllFourniture();
 		
-		FormulaireEmprunt formu = formser.GetByIdFormulaire(Long.parseLong(id));
+		FormulaireEmprunt formu = formser.getByIdFormulaire(Long.parseLong(id));
 		lstForm.remove(formu);
-		formser.SupprimerFormulaireService(formu);
+		formser.supprimerFormulaireService(formu);
 		
 		for (FormulaireEmprunt form : lstForm) {
-			formser.AjoutFormulaireService(form);
+			formser.ajoutFormulaireService(form);
 		}
 		
 		for(Employe emp : lstEmp) {
 			List<FormulaireEmprunt> lstFormulaire = emp.getFormulaire();
 			lstFormulaire.remove(formu);
 			emp.setFormulaire(lstFormulaire);
-			empser.AjoutEmployeService(emp);
+			empser.ajoutEmployeService(emp);
 		}
 		
 		for(Fourniture four : lstFour) {
 			List<FormulaireEmprunt> lstFormulaire = four.getFormulaire();
 			lstFormulaire.remove(formu);
 			four.setFormulaire(lstFormulaire);
-			fourser.AjoutFournitureService(four);
+			fourser.ajoutFournitureService(four);
 		}
 		
 	}

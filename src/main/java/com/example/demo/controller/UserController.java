@@ -39,36 +39,36 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
-	public ModelAndView AjoutUtilisateur(@ModelAttribute("user") User user) {
-		userServ.AjoutUserService(user);
+	public ModelAndView ajoutUtilisateur(@ModelAttribute("user") User user) {
+		userServ.ajoutUserService(user);
 		return new ModelAndView(direction);
 
 	}
 
 	@RequestMapping(value = "/Update", method = RequestMethod.POST)
-	public ModelAndView UpdateUtilisateur(@ModelAttribute("user") User user) {
-		userServ.UpdateUserService(user);
+	public ModelAndView updateUtilisateur(@ModelAttribute("user") User user) {
+		userServ.updateUserService(user);
 		return new ModelAndView(direction);
 
 	}
 
 	@RequestMapping(value = "/Supprimer", method = RequestMethod.POST)
-	public String SuppUtilisateur(@ModelAttribute("user") User user) {
-		userServ.SupprimerUserService(user);
+	public String suppUtilisateur(@ModelAttribute("user") User user) {
+		userServ.supprimerUserService(user);
 		return direction;
 
 	}
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
 	public String getAllUtilisateur(@ModelAttribute("user") User user, ModelMap model) {
-		model.addAttribute("listeDesUsers", userServ.GetAllUser());
+		model.addAttribute("listeDesUsers", userServ.getAllUser());
 		return "user";
 
 	}
 
 	@RequestMapping(value = "/Chercher", method = RequestMethod.GET)
 	public String getByIdUser(@ModelAttribute("user") User user, ModelMap model) {
-		model.addAttribute("leUser", userServ.GetByIdUser(user.getIduser()));
+		model.addAttribute("leUser", userServ.getByIdUser(user.getIduser()));
 		return "leuser";
 
 	}

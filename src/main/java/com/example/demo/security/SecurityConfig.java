@@ -34,11 +34,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		String roleAdmin = "ROLE_Admin";
+
 		http.csrf().disable();
-		
-		http.httpBasic().and().authorizeRequests().antMatchers("/Role/*").hasAuthority("ROLE_Admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/User/*").hasAuthority("ROLE_Admin");
-		http.httpBasic().and().authorizeRequests().antMatchers("/Employe/*").hasAuthority("ROLE_Admin");
+		http.httpBasic().and().authorizeRequests().antMatchers("/Role/*").hasAuthority(roleAdmin);
+		http.httpBasic().and().authorizeRequests().antMatchers("/User/*").hasAuthority(roleAdmin);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Employe/*").hasAuthority(roleAdmin);
 
 		http.formLogin().loginPage("/login").passwordParameter("password").usernameParameter("username")
 				.defaultSuccessUrl("/").failureUrl("/erreur");
