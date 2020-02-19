@@ -68,10 +68,12 @@ public class FormulaireRestController {
 				four.setQuantiteTotale(four.getQuantiteTotale()-quantite);
 			}
 			four.setQuantiteDisponible(four.getQuantiteDisponible()-quantite);
-			form.setEmploye(emp);
-			form.setFourniture(four);
-			formser.AjoutFormulaireService(form);
+		}else {
+			form.setDemandeValidee(false);
 		}
+		form.setEmploye(emp);
+		form.setFourniture(four);
+		formser.AjoutFormulaireService(form);
 	}
 	
 	@RequestMapping(value="/getAll", method=RequestMethod.GET)
