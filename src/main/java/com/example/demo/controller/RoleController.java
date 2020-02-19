@@ -73,7 +73,7 @@ public class RoleController {
 
 	@RequestMapping(value = "/Chercher", method = RequestMethod.GET)
 	public String getByIdRole(@ModelAttribute("role") Role role, ModelMap model) {
-		model.addAttribute("leRole", rolServ.GetByIdRole(role.getIdRole()));
+		model.addAttribute("leRole", rolServ.GetByIdRole(role.getIdrole()));
 		return "lerole";
 
 	}

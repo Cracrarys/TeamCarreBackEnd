@@ -63,7 +63,7 @@ public class UserController {
 
 	@RequestMapping(value = "/Chercher", method = RequestMethod.GET)
 	public String getByIdUser(@ModelAttribute("user") User user, ModelMap model) {
-		model.addAttribute("leUser", userServ.GetByIdUser(user.getIdUser()));
+		model.addAttribute("leUser", userServ.GetByIdUser(user.getIduser()));
 		return "leuser";
 
 	}
