@@ -42,10 +42,10 @@ public class EmployeService {
 	public void UpdateEmployeService(Employe empl) {
 		empDAO.saveAndFlush(empl);
 	}
-	
-	public List<Employe> getEmployeByName(String name){
+
+	public List<Employe> getEmployeByName(String name) {
 		List<Employe> lstEmp = empDAO.findAll();
-		if (name!=null) {
+		if (name != null) {
 			List<Employe> lstF = new ArrayList<>();
 			ListIterator<Employe> lstIt = lstEmp.listIterator();
 			while (lstIt.hasNext()) {
@@ -55,7 +55,7 @@ public class EmployeService {
 				}
 			}
 			return lstF;
-		}else {
+		} else {
 			return lstEmp;
 		}
 	}

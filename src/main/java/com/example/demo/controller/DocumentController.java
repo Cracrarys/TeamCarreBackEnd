@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,9 @@ public class DocumentController {
 
 	@RequestMapping(value = "/init", method = RequestMethod.GET)
 	public String init(ModelMap model) {
-		model.addAttribute("listeEmployebis", empServ.GetAllEmploye());
+		List<Employe> listeEmp = empServ.GetAllEmploye();
+		Collections.sort(listeEmp, Employe.EmpNameComparator);
+		model.addAttribute("listeEmployebis", listeEmp);
 		return "document";
 	}
 
