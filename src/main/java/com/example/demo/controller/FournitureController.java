@@ -67,6 +67,12 @@ public class FournitureController {
 
 		return "fourniture";
 	}
+	
+	@RequestMapping(value = "/find")
+	public String find() {
+
+		return "fourniturefind";
+	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public String AjoutFourniture(@ModelAttribute("fourniture") Fourniture fourniture, ServletRequest req) {
@@ -112,7 +118,7 @@ public class FournitureController {
 	}
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
-	public String getAllFourniture(@ModelAttribute("fourniture") Fourniture fourniture, ModelMap model) {
+	public String GetAllFourniture(@ModelAttribute("fourniture") Fourniture fourniture, ModelMap model) {
 		model.addAttribute("listeFourniture", fouServ.GetAllFourniture());
 		return "fourniture";
 

@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<title>Liste forumlaires en cours</title>
+<title>Liste formulaires en cours</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -55,7 +55,9 @@
           Fournitures
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Fourniture/init">Demande d'emprunt</a>
+          <a class="dropdown-item" href="/Formulaire/init">Demande d'emprunt</a>
+           <a class="dropdown-item" href="/Formulaire/All">Liste des demandes acceptées </a>
+            <a class="dropdown-item" href="/Formulaire/All2">Liste des demandes en cours </a>
           <a class="dropdown-item" href="/Fourniture/All">Liste des Fournitures</a>
           <a class="dropdown-item" href="/Fourniture/find">Trouver une Fourniture</a>
         </div>
@@ -66,8 +68,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Document/init">Demande de Document</a>
-  <a class="dropdown-item" href="/Document/All">Liste des demandes acceptées </a>
-            <a class="dropdown-item" href="/Document/All2">Liste des demandes en cours </a>
+         <a class="dropdown-item" href="/Document/All">Liste des documents</a>
           <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
         </div>
       </li>
@@ -97,7 +98,7 @@
 <h1>Liste des demandes d'emprunt validées</h1>
 
 
-	<form action="Ajout" method="post">
+
 		<table class="table table-striped table-dark">
 			<tr>
 					<th scope="col">id formulaire</th>

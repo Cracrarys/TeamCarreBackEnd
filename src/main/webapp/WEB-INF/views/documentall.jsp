@@ -30,53 +30,55 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="/"
-					style="color: white">Accueil <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="/" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false" style="color: white"> Secteur Employés </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/Employe/init">Modification</a> <a
-							class="dropdown-item" href="/Employe/All">Liste des Employés</a>
-						<a class="dropdown-item" href="/Employe/find">Trouver un
-							Employé</a>
-					</div></li>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav mr-auto">
+		<li class="nav-item active"><a class="nav-link" href="/"
+			style="color: white">Accueil <span class="sr-only">(current)</span></a>
+		</li>
+		 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+          Secteur Employés
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/Employe/init">Modification</a>
+          <a class="dropdown-item" href="/Employe/All">Liste des Employés</a>
+          <a class="dropdown-item" href="/Employe/find">Trouver un Employé</a>
+        </div>
+      </li>
 
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="/" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false" style="color: white"> Fournitures </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/Fourniture/init">Demande
-							d'emprunt</a> <a class="dropdown-item" href="/Fourniture/All">Liste
-							des Fournitures</a> <a class="dropdown-item" href="/Fourniture/find">Trouver
-							une Fourniture</a>
-					</div></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="/" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false" style="color: white"> Document RH </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/Document/init">Demande de
-							Document</a> <a class="dropdown-item" href="/Document/All">Liste
-							des demandes </a> <a class="dropdown-item" href="/Document/find">Trouver
-							une demande</a>
-					</div></li>
+				 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+          Fournitures
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/Formulaire/init">Demande d'emprunt</a>
+           <a class="dropdown-item" href="/Formulaire/All">Liste des demandes acceptées </a>
+            <a class="dropdown-item" href="/Formulaire/All2">Liste des demandes en cours </a>
+          <a class="dropdown-item" href="/Fourniture/All">Liste des Fournitures</a>
+          <a class="dropdown-item" href="/Fourniture/find">Trouver une Fourniture</a>
+        </div>
+      </li>
+				 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+          Document RH
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/Document/init">Demande de Document</a>
+         <a class="dropdown-item" href="/Document/All">Liste des documents</a>
+          <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
+        </div>
+      </li>
 
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="/" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false" style="color: white"> Utilisateur </a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/User/init">Modification</a> <a
-							class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
-						<a class="dropdown-item" href="/User/find">Trouver un
-							Utilisateur</a>
-					</div></li>
+	 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+         Utilisateur
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/User/init">Modification</a>
+          <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
+          <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
+        </div>
+      </li>
 
 
 			</ul>

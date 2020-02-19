@@ -32,6 +32,11 @@ public class UserController {
 		
 		return "user";
 	}
+	@RequestMapping(value = "/find")
+	public String find() {
+
+		return "userfind";
+	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public ModelAndView AjoutUtilisateur(@ModelAttribute("user") User user) {

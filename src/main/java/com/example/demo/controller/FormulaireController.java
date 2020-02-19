@@ -61,11 +61,21 @@ public class FormulaireController {
 		model.addAttribute("listeEmployebis", empServ.GetAllEmploye());
 		model.addAttribute("ListeFourniturebis", fourServ.GetAllFourniture());
 		return "formulaire";
+	
+	}
+	
+	@RequestMapping(value = "/find")
+	public String find() {
+
+		return "formulairefind";
 	}
 
 	@RequestMapping(value = "/Ajout", method = RequestMethod.POST)
 	public String AjoutFormulaire(@ModelAttribute("formulaire") FormulaireEmprunt form,
-			@RequestParam("empID") String empID, @RequestParam("fourID") String fourID) {
+			@RequestParam("empID") String empID, @RequestParam("fourID") String fourID, ModelMap model) {
+		
+		model.addAttribute("listeEmployebis", empServ.GetAllEmploye());
+		model.addAttribute("ListeFourniturebis", fourServ.GetAllFourniture());
 		Employe emp = empServ.GetByIdEmploye(Long.parseLong(empID));
 		Fourniture four = fourServ.GetByIdFourniture(Long.parseLong(fourID));
 		int quantite = form.getQuantite();
@@ -78,7 +88,7 @@ public class FormulaireController {
 			form.setFourniture(four);
 			forServ.AjoutFormulaireService(form);
 		}
-		return direction;
+		return "redirect:All2";
 
 	}
 
@@ -121,8 +131,16 @@ public class FormulaireController {
 
 	@RequestMapping(value = "/All", method = RequestMethod.GET)
 	public String getAllFormulaire(@ModelAttribute("formulaire") FormulaireEmprunt formulaire, ModelMap model) {
-		model.addAttribute("listeFormulaire", forServ.GetAllFormulaire());
-		return "formulaire";
+		model.addAttribute("listeFormulaire", forServ.getAllFormulaire(true));
+		return "formulaireall";
+
+	}
+	@RequestMapping(value = "/All2", method = RequestMethod.GET)
+	public String getAllFormulaire2(@ModelAttribute("formulaire") FormulaireEmprunt formulaire, ModelMap model) {
+		model.addAttribute("listeFormulaire2", forServ.getAllFormulaire2(false));
+		model.addAttribute("listeEmployebis", empServ.GetAllEmploye());
+		model.addAttribute("ListeFourniturebis", fourServ.GetAllFourniture());
+		return "formulairevalid";
 
 	}
 
