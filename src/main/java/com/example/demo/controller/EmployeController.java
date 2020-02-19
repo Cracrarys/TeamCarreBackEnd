@@ -139,10 +139,19 @@ public class EmployeController {
 
 	}
 
-	@RequestMapping(value = "/Chercher", method = RequestMethod.GET)
-	public String getByIdEmploye(@ModelAttribute("employe") Employe employe, ModelMap model) {
-		model.addAttribute("leEmploye", empServ.GetByIdEmploye(employe.getIdEmploye()));
+	@RequestMapping(value = "/ChercherByID", method = RequestMethod.GET)
+	public String getByIdEmploye(@RequestParam("empID") String empID, ModelMap model) {
+		Employe emp = empServ.GetByIdEmploye(Long.parseLong(empID));
+		model.addAttribute("leEmploye", emp);
 		return "leemploye";
+
+	}
+
+	@RequestMapping(value = "/ChercherByName", method = RequestMethod.GET)
+	public String getByNameEmploye(@RequestParam("empNAME") String empNAME, ModelMap model) {
+		List<Employe> listeEmp = empServ.getEmployeByName(empNAME);
+		model.addAttribute("lesEmployeNom", listeEmp);
+		return "lesemployeNom";
 
 	}
 }

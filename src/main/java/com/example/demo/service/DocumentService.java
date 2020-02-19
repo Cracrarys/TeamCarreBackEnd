@@ -43,7 +43,7 @@ public class DocumentService {
 		docDAO.saveAndFlush(doc);
 	}
 	
-	public List<DocumentRH> getDocByEmploye(String name){
+	public List<DocumentRH> getDocByName(String name){
 		List<DocumentRH> lstDocRH = docDAO.findAll();
 		if (name!=null) {
 			List<DocumentRH> lstF = new ArrayList<>();
