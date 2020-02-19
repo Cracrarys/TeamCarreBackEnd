@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <script src="jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -17,12 +16,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<title>Liste employe</title>
+<title>Trouver un formulaire</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -66,7 +60,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Document/init">Demande de Document</a>
-  <a class="dropdown-item" href="/Document/All">Liste des demandes acceptées </a>
+      <a class="dropdown-item" href="/Document/All">Liste des demandes acceptées </a>
             <a class="dropdown-item" href="/Document/All2">Liste des demandes en cours </a>
           <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
         </div>
@@ -95,40 +89,18 @@
 </span>
 <body>
 
+<h1>Recherche de formulaire</h1>
 
-	<h1>Liste des employés</h1>
-
-	<br>
-	<table class="table table-striped table-dark">
-		<tr>
-			<th scope="col">id employe</th>
-			<th scope="col">nom employé</th>
-			<th scope="col">prenom employé</th>
-			<th scope="col">sexe employé</th>
-			<th scope="col">adresse employé</th>
-			<th scope="col">statut employé</th>
-			<th scope="col">salaire employé</th>
-			<th scope="col">type de contrat</th>
-			<th scope="col">date d'entrée</th>
-			<th scope="col">date de sortie</th>
-
-		</tr>
-		<c:forEach items="${listeEmploye}" var="cl">
+<form action="Chercher" method="get">
+		<table class="table table-striped table-dark">
 			<tr>
-				<td>${cl.idEmploye}</td>
-				<td>${cl.nomEmploye}</td>
-				<td>${cl.prenomEmploye}</td>
-				<td>${cl.sexeEmploye}</td>
-				<td>${cl.adresseEmploye}</td>
-				<td>${cl.statutEmploye}</td>
-				<td>${cl.salaireEmploye}</td>
-				<td>${cl.typeContratEmploye}</td>
-				<td>${cl.dateEntreeEmploye}</td>
-				<td>${cl.dateSortieEmploye}</td>
-
-			</tr>
-		</c:forEach>
-	</table>
-
+				<td><input type="text" placeholder="Id" name="idEmploye"></td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-info" type="submit"
+					value="Chercher un forumulaire" name="action"></td>
+		</table>
+	</form>
 </body>
 </html>

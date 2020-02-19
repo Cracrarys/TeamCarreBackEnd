@@ -60,7 +60,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Document/init">Demande de Document</a>
-          <a class="dropdown-item" href="/Document/All">Liste des demandes </a>
+      <a class="dropdown-item" href="/Document/All">Liste des demandes acceptées </a>
+            <a class="dropdown-item" href="/Document/All2">Liste des demandes en cours </a>
           <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
         </div>
       </li>
@@ -97,17 +98,12 @@
 		</table>
 		<table>
 			<tr>
-				<td><input class="btn btn-dark" type="submit"
+				<td><input class="btn btn-info" type="submit"
 					value="Chercher un employe" name="action"></td>
 		</table>
 	</form>
 	
-	<a class="nav-link" href="/Employe/init" style="color: white"><button
-						type="button" class="btn btn-secondary"> Modification des employés</button></a>
-<a class="nav-link" href="/Employe/All" style="color: white"><button
-						type="button" class="btn btn-secondary"> Liste des employés</button></a>
-<a class="nav-link" href="/" style="color: white"><button
-			type="button" class="btn btn-dark">Accueil</button></a>
+
 
 </body>
 </html>

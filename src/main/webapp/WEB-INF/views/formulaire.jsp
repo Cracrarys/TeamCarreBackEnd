@@ -17,7 +17,19 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>Liste des Documents</title>
+
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(function() {
+		$("#datepicker").datepicker();
+	});
+</script>
+<title>Formulaire d'emprunt</title>
 </head>
 <span class="border-top">
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -63,8 +75,10 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="/Document/init">Demande de
 							Document</a> <a class="dropdown-item" href="/Document/All">Liste
-							des demandes </a> <a class="dropdown-item" href="/Document/find">Trouver
-							une demande</a>
+							des demandes acceptées </a> <a class="dropdown-item"
+							href="/Document/All2">Liste des demandes en cours </a> <a
+							class="dropdown-item" href="/Document/find">Trouver une
+							demande</a>
 					</div></li>
 
 				<li class="nav-item dropdown"><a
@@ -89,37 +103,82 @@
 	</nav>
 </span>
 
-
-<h1>Liste des documents édités</h1>
-
-<br>
-
-
 <body>
-	<table class="table table-striped table-dark">
-		<tr>
-			<th scope="col">id document</th>
-			<th scope="col">type document</th>
-			<th scope="col">date d'édition document</th>
-			<th scope="col">employé</th>
-
-
-
-		</tr>
-		<c:forEach items="${listeDocumentRH}" var="cl">
+	<form action="Ajout" method="post">
+		<table class="table table-striped table-dark">
 			<tr>
-				<td>${cl.idDocument}</td>
-				<td>${cl.typeDocument}</td>
-				<td>${cl.dateEditionDocument}</td>
-				<td>${cl.employe}</td>
+				<th scope="col">id formulaire</th>
+				<th scope="col">type formulaire</th>
+				<th scope="col">nom formulaire</th>
+				<th scope="col">quantité</th>
+				<th scope="col">date d'emprunt</th>
+				<th scope="col">date de retour</th>
+				<th scope="col">employé</th>
+				<th scope="col">validation</th>
+				<th scope="col">foruniture</th>
+
+
+
+
 			</tr>
-		</c:forEach>
-	</table>
 
+			<tr>
+				<td><input type="text" name="idFormulaire"></td>
+				<td><select class="custom-select" name="typeFormulaire">
+						<option>Informatique</option>
+						<option>Papeterie</option>
+						<option>Bureautique</option>
+				</select></td>
+				<td><input type="text" name="nomFormulaire"></td>
+				<td><input type="text" name="quantité"></td>
+				<td><input type="text" id="datepicker2" class="datepicker"
+					name="dateEmprunt"></td>
+				<td><input type="text" id="datepicker1" class="datepicker"
+					name="dateRetour"></td>
+	<td><select name="empID" multiple="multiple">
+						<c:forEach items="${listeEmployebis}" var="lst">
+							<option value="${lst.idEmploye}">${lst.nomEmploye}</option>
+						</c:forEach>
+				</select></td>
+				<td><select class="custom-select" name="demandeValidee">
+						<option>0</option> </select></td>
+							<td><select name="fourID" multiple="multiple">
+						<c:forEach items="${ListeFourniturebis}" var="lst">
+							<option value="${lst.idFourniture}">${lst.nomFourniture}</option>
+						</c:forEach>
+				</select></td>
 
+				
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-success" type="submit"
+					value="Ajouter ou modifier un forumulaire" name="action"></td>
+		</table>
+	</form>
 
+	<form action="Supprimer" method="post" name="fourID">
+		<table class="table table-striped table-dark">
+			<tr>
+				<td><input type="text" placeholder="Id" name="idEmploye"></td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-danger" type="submit"
+					value="Supprimer un formulaire" name="action"></td>
+		</table>
+	</form>
 
-
-
+	<form action="Chercher" method="get">
+		<table class="table table-striped table-dark">
+			<tr>
+				<td><input type="text" placeholder="Id" name="idEmploye"></td>
+		</table>
+		<table>
+			<tr>
+				<td><input class="btn btn-info" type="submit"
+					value="Chercher un forumulaire" name="action"></td>
+		</table>
+	</form>
 </body>
 </html>

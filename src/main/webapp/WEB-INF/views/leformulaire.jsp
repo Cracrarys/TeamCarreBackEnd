@@ -17,12 +17,12 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet"
+	<link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<title>Liste employe</title>
+<title>Trouver un employe</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -66,7 +66,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Document/init">Demande de Document</a>
-  <a class="dropdown-item" href="/Document/All">Liste des demandes acceptées </a>
+      <a class="dropdown-item" href="/Document/All">Liste des demandes acceptées </a>
             <a class="dropdown-item" href="/Document/All2">Liste des demandes en cours </a>
           <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
         </div>
@@ -95,40 +95,37 @@
 </span>
 <body>
 
+<h1>Demande recherchée</h1>
+<br>
 
-	<h1>Liste des employés</h1>
 
-	<br>
-	<table class="table table-striped table-dark">
-		<tr>
-			<th scope="col">id employe</th>
-			<th scope="col">nom employé</th>
-			<th scope="col">prenom employé</th>
-			<th scope="col">sexe employé</th>
-			<th scope="col">adresse employé</th>
-			<th scope="col">statut employé</th>
-			<th scope="col">salaire employé</th>
-			<th scope="col">type de contrat</th>
-			<th scope="col">date d'entrée</th>
-			<th scope="col">date de sortie</th>
 
-		</tr>
-		<c:forEach items="${listeEmploye}" var="cl">
+	
+		<table class="table table-striped table-dark">
 			<tr>
-				<td>${cl.idEmploye}</td>
-				<td>${cl.nomEmploye}</td>
-				<td>${cl.prenomEmploye}</td>
-				<td>${cl.sexeEmploye}</td>
-				<td>${cl.adresseEmploye}</td>
-				<td>${cl.statutEmploye}</td>
-				<td>${cl.salaireEmploye}</td>
-				<td>${cl.typeContratEmploye}</td>
-				<td>${cl.dateEntreeEmploye}</td>
-				<td>${cl.dateSortieEmploye}</td>
+				<th scope="col">id formulaire</th>
+				<th scope="col">type formulaire</th>
+				<th scope="col">nom formulaire</th>
+				<th scope="col">quantité</th>
+				<th scope="col">date d'emprunt</th>
+				<th scope="col">date de retour</th>
+				<th scope="col">validation</th>
+
 
 			</tr>
-		</c:forEach>
-	</table>
+				
+			<tr>
+				<td>${cl.idFormulaire}</td>
+				<td>${cl.typeFormulaire}</td>
+				<td>${cl.nomFormulaire}</td>
+				<td>${cl.quantite}</td>
+				<td>${cl.dateEmprunt}</td>
+				<td>${cl.dateRetour}</td>
+				<td>${cl.demandeValidee}</td>
+				
 
+			</tr>
+	
+	</table>
 </body>
 </html>
