@@ -19,7 +19,7 @@ public class Role {
 	private long idRole;
 	@Column(name = "rolename")
 	private String titreRole;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "idUser")
 	private User user;
 

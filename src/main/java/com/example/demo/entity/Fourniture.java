@@ -38,7 +38,7 @@ public class Fourniture {
 	@JsonIgnore
 	private List<FormulaireEmprunt> formulaire = new ArrayList<>();
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
 	@JoinTable(name = "affectations", joinColumns = @JoinColumn(name = "fourniture"), inverseJoinColumns = @JoinColumn(name = "employe"))
 	private List<Employe> employe;
 

@@ -54,7 +54,7 @@ public class Employe {
 	@JsonIgnore
 	private List<FormulaireEmprunt> formulaire = new ArrayList<>();
 
-	@ManyToMany(mappedBy = "employe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "employe", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Fourniture> fourniture;
 
