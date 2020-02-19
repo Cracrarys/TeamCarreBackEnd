@@ -63,7 +63,7 @@ public class FormulaireRestController {
 		Employe emp = empser.GetByIdEmploye(Long.parseLong(idEmp));
 		Fourniture four = fourser.GetByIdFourniture(Long.parseLong(idFour));
 		int quantite = form.getQuantite();
-		if (four.getQuantiteDisponible()>=quantite) {
+		if (four.getQuantiteDisponible()>=quantite && form.isDemandeValidee()) {
 			if (four.isConsommable()) {
 				four.setQuantiteTotale(four.getQuantiteTotale()-quantite);
 			}
