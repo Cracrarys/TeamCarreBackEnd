@@ -79,6 +79,9 @@
         </div>
       </li>
 
+<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
 
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
@@ -93,7 +96,7 @@
 
 <h1>Recherche de formulaire</h1>
 
-<form action="Chercher" method="get">
+<form action="ChercherByID" method="get">
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="idEmploye"></td>

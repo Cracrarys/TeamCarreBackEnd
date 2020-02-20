@@ -112,7 +112,7 @@ public class DocumentController {
 	@RequestMapping(value = "/ChercherByID", method = RequestMethod.GET)
 	public String getByIdDocument(@RequestParam("docID") String docID, ModelMap model) {
 		DocumentRH doc = docServ.getByIdDocument(Long.parseLong(docID));
-		model.addAttribute("leDoucumentRH", doc);
+		model.addAttribute("leDocumentRH", doc);
 		return "ledocument";
 
 	}
@@ -120,8 +120,8 @@ public class DocumentController {
 	@RequestMapping(value = "/ChercherByName", method = RequestMethod.GET)
 	public String getByNameDocument(@RequestParam("docNAME") String docNAME, ModelMap model) {
 		List<DocumentRH> listeDoc = docServ.getDocByName(docNAME);
-		model.addAttribute("lesDocumentsNom", listeDoc);
-		return "lesdocumentsNom";
+		model.addAttribute("listDocument", listeDoc);
+		return "ledocument2";
 
 	}
 }

@@ -91,6 +91,11 @@
         </div>
       </li>
 
+	<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
+
+
 
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -103,14 +108,16 @@
 </span>
 
 	<body>
+	<p>(<span style="color:red">*</span>) Champ obligatoire </p>
+<br>
 
-		<form action="Ajout" method="post">
+		<form action="Update" method="post">
 			<table class="table table-striped table-dark">
 				<tr>
-					<th scope="col">id document</th>
-					<th scope="col">type document</th>
-					<th scope="col">date d'édition document</th>
-					<th scope="col">employé</th>
+					<th scope="col">id document <span style="color:red">*</span></th>
+					<th scope="col">type document <span style="color:red">*</span></th>
+					<th scope="col">date d'édition document <span style="color:red">*</span></th>
+					<th scope="col">employé <span style="color:red">*</span></th>
 
 
 				</tr>

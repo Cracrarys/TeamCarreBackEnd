@@ -88,7 +88,7 @@ public class RoleController {
 	public String getAllTache(@ModelAttribute("role") Role role, ModelMap model) {
 		model.addAttribute("listeDesRoles", rolServ.getAllRole());
 		model.addAttribute("listeDesUsers", userServ.getAllUser());
-		return "role";
+		return "roleall";
 
 	}
 

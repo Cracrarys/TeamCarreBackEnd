@@ -17,20 +17,12 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="jquery-3.4.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script>
-	$(function() {
-		$(".datepicker").datepicker();
-	});
-</script>
-<title>Liste formulaires en cours</title>
+<title>Trouver un employe</title>
 </head>
 <span class="border-top"> <nav
 		class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -108,104 +100,43 @@
 	</nav>
 </span>
 <body>
-	<h1>Liste des demandes d'emprunt non validées</h1>
+
+	<h1>Demande recherchée</h1>
 	<br>
-	<p>(<span style="color:red">*</span>) Champ obligatoire </p>
+
 
 
 
 	<table class="table table-striped table-dark">
 		<tr>
-			<th scope="col">id formulaire <span style="color:red">*</span> </th>
-				<th scope="col">type formulaire <span style="color:red">*</span></th>
-				<th scope="col">nom formulaire <span style="color:red">*</span></th>
-				<th scope="col">quantité <span style="color:red">*</span></th>
-				<th scope="col">date d'emprunt <span style="color:red">*</span></th>
-				<th scope="col">date de retour <span style="color:red">*</span></th>
-				<th scope="col">employé <span style="color:red">*</span></th>
-				<th scope="col">validation <span style="color:red">*</span></th>
-				<th scope="col">fourniture <span style="color:red">*</span></th>
+			<th scope="col">id formulaire</th>
+			<th scope="col">type formulaire</th>
+			<th scope="col">nom formulaire</th>
+			<th scope="col">quantité</th>
+			<th scope="col">date d'emprunt</th>
+			<th scope="col">date de retour</th>
+			<th scope="col">employé</th>
+			<th scope="col">validation</th>
+			<th scope="col">foruniture</th>
 
 
 		</tr>
-		<c:forEach items="${listeFormulaire2}" var="cl">
-			<tr>
-				<td>${cl.idFormulaire}</td>
-				<td>${cl.typeFormulaire}</td>
-				<td>${cl.nomFormulaire}</td>
-				<td>${cl.quantite}</td>
-				<td>${cl.dateEmprunt}</td>
-				<td>${cl.dateRetour}</td>
-				<td>${cl.employe}</td>
-				<td>${cl.demandeValidee}</td>
-				<td>${cl.fourniture}</td>
+<c:forEach items="${listEmploye}" var="cl">
+		<tr>
+			<td>${cl.idFormulaire}</td>
+			<td>${cl.typeFormulaire}</td>
+			<td>${cl.nomFormulaire}</td>
+			<td>${cl.quantite}</td>
+			<td>${cl.dateEmprunt}</td>
+			<td>${cl.dateRetour}</td>
+			<td>${cl.employe}</td>
+			<td>${cl.demandeValidee}</td>
+			<td>${cl.fourniture}</td>
 
 
-			</tr>
-		</c:forEach>
+
+		</tr>
+</c:forEach>
 	</table>
-
-	<form action="Update" method="post">
-		<table class="table table-striped table-dark">
-			<tr>
-				<th scope="col">id formulaire <span style="color:red">*</span> </th>
-				<th scope="col">type formulaire <span style="color:red">*</span></th>
-				<th scope="col">nom formulaire <span style="color:red">*</span></th>
-				<th scope="col">quantité <span style="color:red">*</span></th>
-				<th scope="col">date d'emprunt <span style="color:red">*</span></th>
-				<th scope="col">date de retour <span style="color:red">*</span></th>
-				<th scope="col">employé <span style="color:red">*</span></th>
-				<th scope="col">validation <span style="color:red">*</span></th>
-				<th scope="col">fourniture <span style="color:red">*</span></th>
-
-
-
-
-			</tr>
-
-			<tr>
-				<td><input type="text" name="idFormulaire"></td>
-				<td><select class="custom-select" name="typeFormulaire">
-						<option>Informatique</option>
-						<option>Papeterie</option>
-						<option>Bureautique</option>
-				</select></td>
-				<td><input type="text" name="nomFormulaire"></td>
-				<td><input type="text" name="quantité"></td>
-				<td><input type="text" id="datepicker2" class="datepicker"
-					name="dateEmprunt"></td>
-				<td><input type="text" id="datepicker1" class="datepicker"
-					name="dateRetour"></td>
-				<td><select name="empID" multiple="multiple">
-						<c:forEach items="${listeEmployebis}" var="lst">
-							<option value="${lst.idEmploye}">${lst.nomEmploye}</option>
-						</c:forEach>
-				</select></td>
-			<td><input type="checkbox" name="demandeValidee" value="true"/>
-				<td><select name="fourID" multiple="multiple">
-						<c:forEach items="${ListeFourniturebis}" var="lst">
-							<option value="${lst.idFourniture}">${lst.nomFourniture}</option>
-						</c:forEach>
-				</select></td>
-		</table>
-		<table>
-			<tr>
-				<td><input class="btn btn-success" type="submit"
-					value="Ajouter ou modifier un formulaire" name="action"></td>
-		</table>
-	</form>
-
-	<form action="Supprimer" method="post" >
-		<table class="table table-striped table-dark">
-			<tr>
-				<td><input type="text" placeholder="Id" name="fourID"></td>
-		
-			
-				<td><input class="btn btn-danger" type="submit"
-					value="Supprimer un formulaire" name="action"></td>
-		</table>
-	</form>
-
-
 </body>
 </html>

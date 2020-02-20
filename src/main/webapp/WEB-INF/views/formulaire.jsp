@@ -26,7 +26,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 	$(function() {
-		$("#datepicker").datepicker();
+		$(".datepicker").datepicker();
 	});
 </script>
 <title>Formulaire d'emprunt</title>
@@ -93,6 +93,9 @@
         </div>
       </li>
 
+<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
 
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -105,18 +108,20 @@
 </span>
 
 <body>
-	<form action="Ajout" method="post">
+<p>(<span style="color:red">*</span>) Champ obligatoire </p>
+<br>
+	<form action="Update" method="post">
 		<table class="table table-striped table-dark">
 			<tr>
-				<th scope="col">id formulaire</th>
-				<th scope="col">type formulaire</th>
-				<th scope="col">nom formulaire</th>
-				<th scope="col">quantité</th>
-				<th scope="col">date d'emprunt</th>
-				<th scope="col">date de retour</th>
-				<th scope="col">employé</th>
+				<th scope="col">id formulaire <span style="color:red">*</span></th>
+				<th scope="col">type formulaire <span style="color:red">*</span></th>
+				<th scope="col">nom formulaire <span style="color:red">*</span></th>
+				<th scope="col">quantité <span style="color:red">*</span></th>
+				<th scope="col">date d'emprunt <span style="color:red">*</span></th>
+				<th scope="col">date de retour <span style="color:red">*</span></th>
+				<th scope="col">employé <span style="color:red">*</span></th>
 				
-				<th scope="col">fourniture</th>
+				<th scope="col">fourniture <span style="color:red">*</span></th>
 
 
 
@@ -156,16 +161,6 @@
 		</table>
 	</form>
 
-	<form action="Supprimer" method="post" >
-		<table class="table table-striped table-dark">
-			<tr>
-				<td><input type="text" placeholder="Id" name="fourID"></td>
-		
-			
-				<td><input class="btn btn-danger" type="submit"
-					value="Supprimer un formulaire" name="action"></td>
-		</table>
-	</form>
 
 	<form action="Chercher" method="get">
 		<table class="table table-striped table-dark">

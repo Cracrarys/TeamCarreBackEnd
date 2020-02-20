@@ -79,6 +79,9 @@
         </div>
       </li>
 
+<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
 
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
@@ -94,7 +97,7 @@
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Identifiant à chercher"
-					name="idUser"></td>
+					name="iduser"></td>
 				<td><input class="btn btn-info" type="submit"
 					value="Chercher un utilisateur" name="action"></td>
 		</table>

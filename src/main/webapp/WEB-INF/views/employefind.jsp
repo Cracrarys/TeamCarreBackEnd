@@ -78,6 +78,9 @@
         </div>
       </li>
 
+<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
 
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
@@ -92,17 +95,26 @@
 
 <h1>Recherche d'employé</h1>
 
-<form action="Chercher" method="get">
+<form action="ChercherByID" method="get">
 		<table class="table table-striped table-dark">
 			<tr>
-				<td><input type="text" placeholder="Id" name="idEmploye"></td>
+				<td><input type="text" placeholder="Id" name="empID"></td>
 		
 			
 				<td><input class="btn btn-info" type="submit"
 					value="Chercher un employe" name="action"></td>
 		</table>
 	</form>
-	
+	<form action="ChercherByName" method="get">
+		<table class="table table-striped table-dark">
+			<tr>
+				<td><input type="text" placeholder="Nom" name="empNAME"></td>
+		
+			
+				<td><input class="btn btn-info" type="submit"
+					value="Chercher un employe" name="action"></td>
+		</table>
+	</form>
 
 
 </body>
