@@ -43,7 +43,7 @@ public class FournitureService {
 		fourDAO.saveAndFlush(fourniture);
 	}
 	
-	public List<Fourniture> getFormulaireByName(String name){
+	public List<Fourniture> getFournitureByName(String name){
 		List<Fourniture> lstfour = fourDAO.findAll();
 		if (name!=null) {
 			List<Fourniture> lstF = new ArrayList<>();

@@ -153,10 +153,19 @@ public class FormulaireController {
 
 	}
 
-	@RequestMapping(value = "/Chercher", method = RequestMethod.GET)
-	public String getByIdFormulaire(@ModelAttribute("formulaire") FormulaireEmprunt formulaire, ModelMap model) {
+	@RequestMapping(value = "/ChercherById", method = RequestMethod.GET)
+	public String getByIdFormulaire(@RequestParam("forID") String forID, ModelMap model,
+			@ModelAttribute("formulaire") FormulaireEmprunt formulaire) {
 		model.addAttribute("leFormulaire", forServ.getByIdFormulaire(formulaire.getIdFormulaire()));
 		return "leformulaire";
+
+	}
+
+	@RequestMapping(value = "/ChercherByName", method = RequestMethod.GET)
+	public String getByNameDocument(@RequestParam("forNAME") String forNAME, ModelMap model) {
+		List<FormulaireEmprunt> listeFor = forServ.getForByName(forNAME);
+		model.addAttribute("lesFormulairesNom", listeFor);
+		return "lesformulairesNom";
 
 	}
 }
