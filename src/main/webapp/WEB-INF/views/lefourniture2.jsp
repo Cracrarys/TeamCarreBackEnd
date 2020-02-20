@@ -16,7 +16,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>Accueil</title>
+<title>Fourniture</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -75,11 +75,11 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
-          <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
+       <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
 
-	<li class="nav-item active"><a class="nav-link" href="/logout"
+<li class="nav-item active"><a class="nav-link" href="/logout"
 			style="color: white">Logout <span class="sr-only">(current)</span></a>
 		</li>
 
@@ -95,16 +95,33 @@
 
 
 
-
-<div>
-
-<h2><center> Bienvenue sur le site de recrutement et de ressources humaines</center></h2>
-
-	<h4><center> Nous sommes le ${serverTime}.</center></h4>
-	
-	<br>
-	<h5>Choisissez votre service dans la barre de navigation</h5>
-</div>
-
-<center><img src="https://www.deco-alsace-obernai.fr/1462-thickbox_default/mannele-pain-d-epice-en-peluche-28-cm.jpg"> </center>
+<body>
+<h1>Fourniture recherchée</h1>
+<br>
+	<form>
+		<table class="table table-striped table-dark">
+			<tr>
+				<th scope="col">id fourniture</th>
+				<th scope="col">type fourniture</th>
+				<th scope="col">nom fourniture</th>
+				<th scope="col">quantité disponible</th>
+				<th scope="col">quantité totale</th>
+				<th scope="col">consommable</th>
+				
+			</tr>
+		<c:forEach items="${listFourniture}" var="cl">	
+			<tr>
+				<td>${cl.idFourniture}</td>
+				<td>${cl.typeFourniture}</td>
+				<td>${cl.nomFourniture}</td>
+				<td>${cl.quantiteDisponible}</td>
+				<td>${cl.quantiteTotale}</td>
+				<td>${cl.consommable}</td>
+				
+				
+			</tr>
+		</c:forEach>
+			</table>
+			</form>
+</body>
 </html>

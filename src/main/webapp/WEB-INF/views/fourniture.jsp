@@ -79,6 +79,10 @@
         </div>
       </li>
 
+<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
+
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
 		<input class="form-control mr-sm-2" type="search" placeholder="Search"
@@ -92,15 +96,17 @@
 
 
 <body>
+<p>(<span style="color:red">*</span>) Champ obligatoire </p>
+<br>
 	<form>
 		<table class="table table-striped table-dark">
 			<tr>
-				<th scope="col">id fourniture</th>
-				<th scope="col">type fourniture</th>
-				<th scope="col">nom fourniture</th>
-				<th scope="col">quantité disponible</th>
-				<th scope="col">quantité totale</th>
-				<th scope="col">consommable</th>
+				<th scope="col">id fourniture <span style="color:red">*</span></th>
+				<th scope="col">type fourniture <span style="color:red">*</span></th>
+				<th scope="col">nom fourniture <span style="color:red">*</span></th>
+				<th scope="col">quantité disponible <span style="color:red">*</span></th>
+				<th scope="col">quantité totale <span style="color:red">*</span></th>
+				<th scope="col">consommable <span style="color:red">*</span></th>
 				
 			</tr>
 					<c:forEach items="${listeFourniture}" var="cl">
@@ -118,15 +124,15 @@
 			</table>
 			</form>
 			
-	<form action="Ajout" method="post">
+	<form action="Update" method="post">
 		<table class="table table-striped table-dark">
 			<tr>
-				<th scope="col">id fourniture</th>
-				<th scope="col">type fourniture</th>
-				<th scope="col">nom fourniture</th>
-				<th scope="col">quantité disponible</th>
-				<th scope="col">quantité totale</th>
-				<th scope="col">consommable</th>
+				<th scope="col">id fourniture <span style="color:red">*</span></th>
+				<th scope="col">type fourniture <span style="color:red">*</span></th>
+				<th scope="col">nom fourniture <span style="color:red">*</span></th>
+				<th scope="col">quantité disponible <span style="color:red">*</span></th>
+				<th scope="col">quantité totale <span style="color:red">*</span></th>
+				<th scope="col">consommable <span style="color:red">*</span></th>
 				
 			</tr>
 			<tr>

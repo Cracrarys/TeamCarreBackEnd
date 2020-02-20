@@ -20,12 +20,14 @@
 	<h1>Erreur de login, veuiller recommencer</h1>
 	<table>
 		<tr>
+		
+
+		
 			<td><a class="nav-link" href="/" style="color: black"><button
-						type="button" class="btn btn-link">Home</button></a></td>
-			<td><a class="nav-link" href="/initUser" style="color: black"><button
-						type="button" class="btn btn-link">Créer un utilisateur</button></a></td>
-			<td><a class="nav-link" href="/initRole" style="color: black"><button
-						type="button" class="btn btn-link">Assigner un rôle</button></a></td>
+						type="button" class="btn btn-dark">Accueil</button></a></td>
+			<td><a class="nav-link" href="/login" style="color: black"><button
+						type="button" class="btn btn-dark">login</button></a></td>
+			
 		</tr>
 	</table>
 </body>

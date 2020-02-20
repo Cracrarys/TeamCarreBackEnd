@@ -79,6 +79,9 @@
         </div>
       </li>
 
+<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
 
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
@@ -102,8 +105,8 @@
 			</tr>
 			<c:forEach items="${listeDesUsers}" var="mat">
 				<tr>
-					<td>${mat.idUser}</td>
-					<td>${mat.login}</td>
+					<td>${mat.iduser}</td>
+					<td>${mat.username}</td>
 				</tr>
 			</c:forEach>
 		</table>

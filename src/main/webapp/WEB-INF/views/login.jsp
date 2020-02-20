@@ -1,14 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%-- <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%> --%>
-<%-- <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%> --%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
 <html>
-
-
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script src="jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -18,36 +17,112 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>Login</title>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(function() {
+		$("#datepicker").datepicker();
+	});
+</script>
+<title>Document</title>
 </head>
+<span class="border-top">
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+		<a class="navbar-brand" href="" style="color: white">Gestion des
+			ressources humaines</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav mr-auto">
+		<li class="nav-item active"><a class="nav-link" href="/"
+			style="color: white">Accueil <span class="sr-only">(current)</span></a>
+		</li>
+		 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+          Secteur Employés
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/Employe/init">Modification</a>
+          <a class="dropdown-item" href="/Employe/All">Liste des Employés</a>
+          <a class="dropdown-item" href="/Employe/find">Trouver un Employé</a>
+        </div>
+      </li>
+
+				 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+          Fournitures
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/Formulaire/init">Demande d'emprunt</a>
+           <a class="dropdown-item" href="/Formulaire/All">Liste des demandes acceptées </a>
+            <a class="dropdown-item" href="/Formulaire/All2">Liste des demandes en cours </a>
+          <a class="dropdown-item" href="/Fourniture/All">Liste des Fournitures</a>
+          <a class="dropdown-item" href="/Fourniture/find">Trouver une Fourniture</a>
+        </div>
+      </li>
+				 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+          Document RH
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/Document/init">Demande de Document</a>
+         <a class="dropdown-item" href="/Document/All">Liste des documents</a>
+          <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
+        </div>
+      </li>
+
+	 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+         Utilisateur
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/User/init">Modification</a>
+          <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
+          <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
+       <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
+        </div>
+      </li>
+
+	<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
+		<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+</ul>
+</div>
+</nav>
+</span>
 <body>
 
-
+<p>(<span style="color:red">*</span>) Champ obligatoire </p>
+<br>
 	<form action="login" method="post">
-		<table>
+		<table class="table table-striped table-dark">
 			<tr>
-				<td>Login</td>
+				<td>Login <span style="color:red">*</span></td>
 				<td><input type="text" name="username"></td>
 			</tr>
 			<tr>
-				<td>Password</td>
+				<td>Password <span style="color:red">*</span></td>
 				<td><input type="password" name="password"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" name="btnL" value="Login" class="btn btn-primary"></td>
+				<td><input type="submit" name="btnL" value="Login" class="btn btn-info"></td>
 			</tr>
 		</table>
 	</form>
-	<table>
-		<tr>
 
-			<td><a class="nav-link" href="/initUser" style="color: black"><button
-						type="button" class="btn btn-link">Cr�er un utilisateur</button></a></td>
-			<td><a class="nav-link" href="/initRole" style="color: black"><button
-						type="button" class="btn btn-link">Assigner un r�le</button></a></td>
-		</tr>
-	</table>
 
 
 

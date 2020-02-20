@@ -79,6 +79,9 @@
         </div>
       </li>
 
+<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
 
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
@@ -89,23 +92,31 @@
 </div>
 </nav>
 </span>
-
+<body>
+<p>(<span style="color:red">*</span>) Champ obligatoire </p>
+<br>
 	<form action="Ajout" method="post">
 	<table class="table table-striped table-dark">
 
 <tr>
-<th scope="col">id role</th>
-<th scope="col">role</th>
-<th scope="col">utilisateur</th>
+<th scope="col">id role <span style="color:red">*</span></th>
+<th scope="col">role <span style="color:red">*</span></th>
+<th scope="col">utilisateur <span style="color:red">*</span></th>
 
 </tr>
 <tr>
 
-			<td><input type="text" name="idRole"></td>
-					<td><input type="text" name="titreRole"></td>
+			<td><input type="text" name="idrole"></td>
+		
+					<td><select class="custom-select" name="rolename">
+						<option>ROLE_Admin</option>
+						<option>ROLE_Cadre</option>
+						<option>ROLE_Emp</option>
+						
+				</select></td>
 					<td><select name="useID" multiple="multiple">
 							<c:forEach items="${listeDesUsers2}" var="lst">
-								<option value="${lst.idUser}">${lst.login}</option>
+								<option value="${lst.iduser}">${lst.username}</option>
 							</c:forEach>
 					</select></td>
 					
@@ -119,41 +130,13 @@
 	</form>
 	<br>
 	
-	<form action="Update" method="post">
-	<table class="table table-striped table-dark">
-
-<tr>
-<th scope="col">id role</th>
-<th scope="col">role</th>
-<th scope="col">utilisateur</th>
-
-</tr>
-<tr>
-
-			<td><input type="text" name="idRole"></td>
-					<td><input type="text" name="titreRole"></td>
-					<td><select name="useID" multiple="multiple">
-							<c:forEach items="${listeDesUsers2}" var="lst">
-								<option value="${lst.idUser}">${lst.login}</option>
-							</c:forEach>
-					</select></td>
-					
-					</tr>
-					</table>
-					<table>
-				<tr>
-					<td><input class="btn btn-success" type="submit"
-						value="Modifier un role" name="action"></td>
-			</table>
-	</form>
-	
-	
+		
 	
 	<form action="Supprimer" method="post">
 		<table class="table table-striped table-dark">
 			<tr>
 
-				<td><input type="text" name="idRole"
+				<td><input type="text" name="idrole"
 					placeholder="Role a supprimer"></td>
 				<td><input class="btn btn-danger" type="submit"
 					value="Supprimer un role" name="action"></td>
@@ -164,11 +147,12 @@
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="role à chercher"
-					name="idRole"></td>
+					name="idrole"></td>
 				<td><input class="btn btn-secondary" type="submit"
 					value="Chercher un role" name="action"></td>
 		</table>
 	</form>
+	<br>
 	<h3>Liste des rôles</h3>
 	<table class="table table-striped table-dark">
 		<tr>
@@ -180,8 +164,8 @@
 		</tr>
 		<c:forEach items="${listeDesRoles2}" var="cl">
 			<tr>
-				<td>${cl.idRole}</td>
-				<td>${cl.titreRole}</td>
+				<td>${cl.idrole}</td>
+				<td>${cl.rolename}</td>
 				<td>${cl.user}</td>
 
 			</tr>

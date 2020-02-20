@@ -93,6 +93,9 @@
 							Utilisateur</a>
 					</div></li>
 
+<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
 
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -103,20 +106,24 @@
 		</div>
 	</nav>
 </span>
+
 <body>
-	<form action="Ajout" method="post">
+
+<p>(<span style="color:red">*</span>) Champ obligatoire </p>
+<br>
+	<form action="Update" method="post">
 		<table class="table table-striped table-dark">
 			<tr>
-				<th scope="col">id employe</th>
-				<th scope="col">nom employé</th>
-				<th scope="col">prenom employé</th>
-				<th scope="col">sexe employé</th>
-				<th scope="col">adresse employé</th>
-				<th scope="col">statut employé</th>
-				<th scope="col">salaire employé</th>
-				<th scope="col">type de contrat</th>
-				<th scope="col">date d'entrée</th>
-				<th scope="col">date de sortie</th>
+				<th scope="col">id <span style="color:red">*</span></th>
+				<th scope="col">nom <span style="color:red">*</span></th>
+				<th scope="col">prenom <span style="color:red">*</span></th>
+				<th scope="col">sexe <span style="color:red">*</span></th>
+				<th scope="col">adresse <span style="color:red">*</span></th>
+				<th scope="col">statut <span style="color:red">*</span></th>
+				<th scope="col">salaire <span style="color:red">*</span></th>
+				<th scope="col">type de contrat <span style="color:red">*</span></th>
+				<th scope="col">date d'entrée <span style="color:red">*</span></th>
+				<th scope="col">date de sortie <span style="color:red">*</span></th>
 			</tr>
 
 			<tr>
@@ -150,51 +157,6 @@
 		</table>
 	</form>
 
-	<form action="Update" method="post">
-		<table class="table table-striped table-dark">
-			<tr>
-				<th scope="col">id employe</th>
-				<th scope="col">nom employé</th>
-				<th scope="col">prenom employé</th>
-				<th scope="col">sexe employé</th>
-				<th scope="col">adresse employé</th>
-				<th scope="col">statut employé</th>
-				<th scope="col">salaire employé</th>
-				<th scope="col">type de contrat</th>
-				<th scope="col">date d'entrée</th>
-				<th scope="col">date de sortie</th>
-			</tr>
-
-			<tr>
-				<td><input type="text" name="idEmploye"></td>
-				<td><input type="text" name="nomEmploye"></td>
-				<td><input type="text" name="prenomEmploye"></td>
-				<td><select class="custom-select" name="sexeEmploye">
-						<option>Femme</option>
-						<option>Homme</option>
-				</select></td>
-				<td><input type="text" name="adresseEmploye"></td>
-				<td><select class="custom-select" name="statutEmploye">
-						<option>Cadre</option>
-						<option>Employe</option>
-				</select></td>
-				<td><input type="text" name="salaireEmploye"></td>
-				<td><select class="custom-select" name="typeContratEmploye">
-						<option>CDI</option>
-						<option>CDD</option>
-						<option>Interim</option>
-				</select></td>
-				<td><input type="text" id="datepicker3" class="datepicker"
-					name="dateEntreeEmploye"></td>
-				<td><input type="text" id="datepicker4" class="datepicker"
-					name="dateSortieEmploye"></td>
-		</table>
-		<table>
-			<tr>
-				<td><input class="btn btn-success" type="submit"
-					value="Modifier un employé" name="action"></td>
-		</table>
-	</form>
 
 	<form action="Supprimer" method="post">
 		<table class="table table-striped table-dark">

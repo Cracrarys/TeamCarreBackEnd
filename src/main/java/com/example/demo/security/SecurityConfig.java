@@ -35,11 +35,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		String roleAdmin = "ROLE_Admin";
+		String roleCadre = "ROLE_Cadre";
+		String roleEmp = "ROLE_Emp";
+		
 
 		http.csrf().disable();
 		http.httpBasic().and().authorizeRequests().antMatchers("/Role/*").hasAuthority(roleAdmin);
 		http.httpBasic().and().authorizeRequests().antMatchers("/User/*").hasAuthority(roleAdmin);
-		http.httpBasic().and().authorizeRequests().antMatchers("/Employe/*").hasAuthority(roleAdmin);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Employe/init").hasAnyAuthority(roleAdmin, roleCadre);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Employe/All").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Employe/find").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Formulaire/init").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Formulaire/All").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Formulaire/All2").hasAnyAuthority(roleAdmin, roleCadre);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Formulaire/find").hasAnyAuthority(roleAdmin, roleCadre);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Fourniture/All").hasAnyAuthority(roleAdmin, roleCadre);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Fourniture/find").hasAnyAuthority(roleAdmin, roleCadre);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Document/init").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Document/All").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Document/find").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
+		
 
 		http.formLogin().loginPage("/login").passwordParameter("password").usernameParameter("username")
 				.defaultSuccessUrl("/").failureUrl("/erreur");

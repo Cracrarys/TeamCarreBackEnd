@@ -78,6 +78,9 @@
           <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
+      	<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
 
 
 	</ul>
@@ -90,44 +93,22 @@
 </nav>
 </span>
 
-	<form action="Ajout" method="post">
-	<table class="table table-striped table-dark">
-
-<tr>
-<th scope="col">id utilisateur</th>
-<th scope="col">login</th>
-<th scope="col">mot de passe</th>
-<th scope="col">activation</th>
-</tr>
-<tr>
-
-			<td><input type="text" name="idUser"></td>
-					<td><input type="text" name="login"></td>
-					<td><input type="text" name="password"></td>
-					<td><input type="checkbox" name="activated" value="true"/>
-					</tr>
-					</table>
-					<table>
-				<tr>
-					<td><input class="btn btn-success" type="submit"
-						value="Ajouter un utilisateur" name="action"></td>
-			</table>
-	</form>
-	<br>
-	
+<body>
+<p>(<span style="color:red">*</span>) Champ obligatoire </p>
+<br>
 	<form action="Update" method="post">
 	<table class="table table-striped table-dark">
 
 <tr>
-<th scope="col">id utilisateur</th>
-<th scope="col">login</th>
-<th scope="col">mot de passe</th>
-<th scope="col">activation</th>
+<th scope="col">id utilisateur <span style="color:red">*</span></th>
+<th scope="col">login <span style="color:red">*</span></th>
+<th scope="col">mot de passe <span style="color:red">*</span></th>
+<th scope="col">activation <span style="color:red">*</span></th>
 </tr>
 <tr>
 
-			<td><input type="text" name="idUser"></td>
-					<td><input type="text" name="login"></td>
+			<td><input type="text" name="iduser"></td>
+					<td><input type="text" name="username"></td>
 					<td><input type="text" name="password"></td>
 					<td><input type="checkbox" name="activated" value="true"/>
 					</tr>
@@ -135,17 +116,18 @@
 					<table>
 				<tr>
 					<td><input class="btn btn-success" type="submit"
-						value="Modifier un utilisateur" name="action"></td>
+						value="Ajouter  ou modifier un utilisateur" name="action"></td>
 			</table>
 	</form>
+	<br>
 	
-	
+
 	
 	<form action="Supprimer" method="post">
 		<table class="table table-striped table-dark">
 			<tr>
 
-				<td><input type="text" name="idUser"
+				<td><input type="text" name="iduser"
 					placeholder="Identifiant a supprimer"></td>
 				<td><input class="btn btn-danger" type="submit"
 					value="Supprimer un utilisateur" name="action"></td>
@@ -156,7 +138,7 @@
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Identifiant à chercher"
-					name="idUser"></td>
+					name="iduser"></td>
 				<td><input class="btn btn-secondary" type="submit"
 					value="Chercher un utilisateur" name="action"></td>
 		</table>
@@ -173,8 +155,8 @@
 			</tr>
 			<c:forEach items="${listeDesUsers2}" var="mat">
 				<tr>
-					<td>${mat.idUser}</td>
-					<td>${mat.login}</td>
+					<td>${mat.iduser}</td>
+					<td>${mat.username}</td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -79,6 +79,9 @@
         </div>
       </li>
 
+<li class="nav-item active"><a class="nav-link" href="/logout"
+			style="color: white">Logout <span class="sr-only">(current)</span></a>
+		</li>
 
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
@@ -99,8 +102,8 @@
 		</tr>
 
 		<tr>
-			<td>${leUser.idUser}</td>
-			<td>${leUser.login}</td>
+			<td>${leUser.iduser}</td>
+			<td>${leUser.username}</td>
 		</tr>
 	</table>
 </body>

@@ -156,8 +156,8 @@ public class EmployeController {
 	@RequestMapping(value = "/ChercherByName", method = RequestMethod.GET)
 	public String getByNameEmploye(@RequestParam("empNAME") String empNAME, ModelMap model) {
 		List<Employe> listeEmp = empServ.getEmployeByName(empNAME);
-		model.addAttribute("lesEmployeNom", listeEmp);
-		return "lesemployeNom";
+		model.addAttribute("listEmploye", listeEmp);
+		return "leemploye2";
 
 	}
 }

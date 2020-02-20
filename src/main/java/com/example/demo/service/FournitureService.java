@@ -59,4 +59,20 @@ public class FournitureService {
 			return lstfour;
 		}
 	}
+	public List<Fourniture> getFournitureByName(String name){
+		List<Fourniture> lstfour = fourDAO.findAll();
+		if (name!=null) {
+			List<Fourniture> lstF = new ArrayList<>();
+			ListIterator<Fourniture> lstIt = lstfour.listIterator();
+			while (lstIt.hasNext()) {
+				Fourniture form = lstIt.next();
+				if (form.getNomFourniture().contains(name)) {
+					lstF.add(form);
+				}
+			}
+			return lstF;
+		}else {
+			return lstfour;
+		}
+	}
 }

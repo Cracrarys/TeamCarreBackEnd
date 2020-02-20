@@ -120,10 +120,19 @@ public class FournitureController {
 
 	}
 
-	@RequestMapping(value = "/Chercher", method = RequestMethod.GET)
-	public String getByIdFourniture(@ModelAttribute("fourniture") Fourniture fourniture, ModelMap model) {
-		model.addAttribute("leFourniture", fourServ.getByIdFourniture(fourniture.getIdFourniture()));
+	@RequestMapping(value = "/ChercherByID", method = RequestMethod.GET)
+	public String getByIdFourniture(@RequestParam("fourID") String fourID, ModelMap model) {
+		Fourniture four = fourServ.getByIdFourniture(Long.parseLong(fourID));
+		model.addAttribute("leFourniture", four);
 		return "lefourniture";
+
+	}
+
+	@RequestMapping(value = "/ChercherByName", method = RequestMethod.GET)
+	public String getByNameFourniture(@RequestParam("fourNAME") String fourNAME, ModelMap model) {
+		List<Fourniture> listeFour = fourServ.getFournitureByName(fourNAME);
+		model.addAttribute("listFourniture", listeFour);
+		return "lefourniture2";
 
 	}
 }
