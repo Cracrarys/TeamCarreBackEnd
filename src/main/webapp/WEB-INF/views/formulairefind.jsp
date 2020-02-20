@@ -99,7 +99,17 @@
 <form action="ChercherByID" method="get">
 		<table class="table table-striped table-dark">
 			<tr>
-				<td><input type="text" placeholder="Id" name="idEmploye"></td>
+				<td><input type="text" placeholder="Id" name="forID"></td>
+		
+			
+				<td><input class="btn btn-info" type="submit"
+					value="Chercher un forumulaire" name="action"></td>
+		</table>
+	</form>
+	<form action="ChercherByName" method="get">
+		<table class="table table-striped table-dark">
+			<tr>
+				<td><input type="text" placeholder="Nom" name="forNAME"></td>
 		
 			
 				<td><input class="btn btn-info" type="submit"

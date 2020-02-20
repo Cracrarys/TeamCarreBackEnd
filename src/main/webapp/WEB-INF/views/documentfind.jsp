@@ -44,12 +44,14 @@
         </div>
       </li>
 
-				 <li class="nav-item dropdown">
+			 <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
           Fournitures
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/Fourniture/init">Demande d'emprunt</a>
+          <a class="dropdown-item" href="/Formulaire/init">Demande d'emprunt</a>
+           <a class="dropdown-item" href="/Formulaire/All">Liste des demandes acceptées </a>
+            <a class="dropdown-item" href="/Formulaire/All2">Liste des demandes en cours </a>
           <a class="dropdown-item" href="/Fourniture/All">Liste des Fournitures</a>
           <a class="dropdown-item" href="/Fourniture/find">Trouver une Fourniture</a>
         </div>
@@ -60,11 +62,11 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/Document/init">Demande de Document</a>
-           <a class="dropdown-item" href="/Document/All">Liste des demandes acceptées </a>
-            <a class="dropdown-item" href="/Document/All2">Liste des demandes en cours </a>
+         <a class="dropdown-item" href="/Document/All">Liste des documents</a>
           <a class="dropdown-item" href="/Document/find">Trouver une demande</a>
         </div>
       </li>
+
 
 	 <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
@@ -105,7 +107,7 @@
 	</form>
 	
 		
-		<form action="ChercherByNAME" method="get">
+		<form action="ChercherByName" method="get">
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Nom" name="docNAME"></td>

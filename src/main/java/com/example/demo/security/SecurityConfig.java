@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.httpBasic().and().authorizeRequests().antMatchers("/Employe/init").hasAnyAuthority(roleAdmin, roleCadre);
 		http.httpBasic().and().authorizeRequests().antMatchers("/Employe/All").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
 		http.httpBasic().and().authorizeRequests().antMatchers("/Employe/find").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
-		http.httpBasic().and().authorizeRequests().antMatchers("/Formulaire/init").hasAnyAuthority(roleAdmin, roleCadre);
+		http.httpBasic().and().authorizeRequests().antMatchers("/Formulaire/init").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
 		http.httpBasic().and().authorizeRequests().antMatchers("/Formulaire/All").hasAnyAuthority(roleAdmin, roleCadre,roleEmp);
 		http.httpBasic().and().authorizeRequests().antMatchers("/Formulaire/All2").hasAnyAuthority(roleAdmin, roleCadre);
 		http.httpBasic().and().authorizeRequests().antMatchers("/Formulaire/find").hasAnyAuthority(roleAdmin, roleCadre);

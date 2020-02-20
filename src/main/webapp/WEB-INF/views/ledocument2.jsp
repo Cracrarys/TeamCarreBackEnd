@@ -16,7 +16,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<title>Accueil</title>
+<title>document trouve</title>
 </head>
 <span class="border-top">
 <nav class="navbar navbar-expand-lg navbar-light bg-dark"> <a
@@ -75,11 +75,11 @@
           <a class="dropdown-item" href="/User/init">Modification</a>
           <a class="dropdown-item" href="/User/All">Liste des Utilisateurs</a>
           <a class="dropdown-item" href="/User/find">Trouver un Utilisateur</a>
-          <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
+                    <a class="dropdown-item" href="/Role/init">Assigner des rôles</a>
         </div>
       </li>
 
-	<li class="nav-item active"><a class="nav-link" href="/logout"
+<li class="nav-item active"><a class="nav-link" href="/logout"
 			style="color: white">Logout <span class="sr-only">(current)</span></a>
 		</li>
 
@@ -92,19 +92,27 @@
 </div>
 </nav>
 </span>
+<body>
+
+<h1>Document recherché</h1>
+
+		<table class="table table-striped table-dark">
+				<tr>
+				<th scope="col">id document</th>
+				<th scope="col">type document</th>
+				<th scope="col">date d'édition document</th>
+				</tr>
+				<c:forEach items="${listDocument}" var="cl">
+				<tr>
+				<td>${cl.idDocument}</td>
+				<td>${cl.typeDocument}</td>
+				<td>${cl.dateEditionDocument}</td>
+				
+				</tr>
+</c:forEach>
+
+</table>
 
 
-
-
-<div>
-
-<h2><center> Bienvenue sur le site de recrutement et de ressources humaines</center></h2>
-
-	<h4><center> Nous sommes le ${serverTime}.</center></h4>
-	
-	<br>
-	<h5>Choisissez votre service dans la barre de navigation</h5>
-</div>
-
-<center><img src="https://www.deco-alsace-obernai.fr/1462-thickbox_default/mannele-pain-d-epice-en-peluche-28-cm.jpg"> </center>
+</body>
 </html>

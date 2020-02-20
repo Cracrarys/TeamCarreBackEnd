@@ -183,6 +183,22 @@ public class Employe {
 		this.dateSortieEmploye = dateSortieEmploye;
 	}
 
+	
+	
+	public Employe(long idEmploye, String nomEmploye, String prenomEmploye, String sexeEmploye, String adresseEmploye,
+			String statutEmploye, double salaireEmploye, String typeContratEmploye, Date dateEntreeEmploye) {
+		super();
+		this.idEmploye = idEmploye;
+		this.nomEmploye = nomEmploye;
+		this.prenomEmploye = prenomEmploye;
+		this.sexeEmploye = sexeEmploye;
+		this.adresseEmploye = adresseEmploye;
+		this.statutEmploye = statutEmploye;
+		this.salaireEmploye = salaireEmploye;
+		this.typeContratEmploye = typeContratEmploye;
+		this.dateEntreeEmploye = dateEntreeEmploye;
+	}
+
 	@Override
 	public String toString() {
 		return "Employe [nomEmploye=" + nomEmploye + ", prenomEmploye=" + prenomEmploye + "]";

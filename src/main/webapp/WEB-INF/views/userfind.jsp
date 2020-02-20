@@ -96,7 +96,7 @@
 	<form action="Chercher" method="get">
 		<table class="table table-striped table-dark">
 			<tr>
-				<td><input type="text" placeholder="Identifiant à chercher"
+				<td><input type="text" placeholder="Id"
 					name="iduser"></td>
 				<td><input class="btn btn-info" type="submit"
 					value="Chercher un utilisateur" name="action"></td>

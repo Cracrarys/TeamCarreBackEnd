@@ -109,7 +109,7 @@
 				<th scope="col">consommable</th>
 				
 			</tr>
-		<c:forEach items="${listFormulaire}" var="cl">	
+		<c:forEach items="${listFourniture}" var="cl">	
 			<tr>
 				<td>${cl.idFourniture}</td>
 				<td>${cl.typeFourniture}</td>

@@ -106,4 +106,20 @@ public class FormulaireService {
 			return lstform;
 		}
 	}
+	public List<FormulaireEmprunt> getForByName(String name) {
+		List<FormulaireEmprunt> lstFor = forDAO.findAll();
+		if (name != null) {
+			List<FormulaireEmprunt> lstF = new ArrayList<>();
+			ListIterator<FormulaireEmprunt> lstIt = lstFor.listIterator();
+			while (lstIt.hasNext()) {
+				FormulaireEmprunt formu = lstIt.next();
+				if (formu.getNomFormulaire().contains(name)) {
+					lstF.add(formu);
+				}
+			}
+			return lstF;
+		} else {
+			return lstFor;
+		}
+	}
 }

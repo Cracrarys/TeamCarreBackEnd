@@ -121,7 +121,7 @@
 
 
 		</tr>
-<c:forEach items="${listEmploye}" var="cl">
+<c:forEach items="${listFormulaire}" var="cl">
 		<tr>
 			<td>${cl.idFormulaire}</td>
 			<td>${cl.typeFormulaire}</td>
