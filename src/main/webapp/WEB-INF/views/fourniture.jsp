@@ -170,10 +170,10 @@
 		</table>
 	</form>
 
-	<form action="Chercher" method="get">
+	<form action="ChercherById" method="get">
 		<table class="table table-striped table-dark">
 			<tr>
-				<td><input type="text" placeholder="Id" name="idFourniture"></td>
+				<td><input type="text" placeholder="Id" name="fourID"></td>
 		
 	
 				<td><input class="btn btn-info" type="submit"

@@ -162,10 +162,10 @@
 	</form>
 
 
-	<form action="Chercher" method="get">
+	<form action="ChercherById" method="get">
 		<table class="table table-striped table-dark">
 			<tr>
-				<td><input type="text" placeholder="Id" name="idFormulaire"></td>
+				<td><input type="text" placeholder="Id" name="forID"></td>
 	
 				<td><input class="btn btn-info" type="submit"
 					value="Chercher un forumulaire" name="action"></td>
