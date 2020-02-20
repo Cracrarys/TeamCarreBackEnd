@@ -109,7 +109,7 @@ public class DocumentController {
 
 	}
 
-	@RequestMapping(value = "/ChercherByID", method = RequestMethod.GET)
+	@RequestMapping(value = "/ChercherById", method = RequestMethod.GET)
 	public String getByIdDocument(@RequestParam("docID") String docID, ModelMap model) {
 		DocumentRH doc = docServ.getByIdDocument(Long.parseLong(docID));
 		model.addAttribute("leDocumentRH", doc);

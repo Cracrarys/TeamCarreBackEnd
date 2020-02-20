@@ -101,6 +101,7 @@
 				<th scope="col">id document</th>
 				<th scope="col">type document</th>
 				<th scope="col">date d'édition document</th>
+				</tr>
 				
 				<tr>
 				<td>${leDocumentRH.idDocument}</td>

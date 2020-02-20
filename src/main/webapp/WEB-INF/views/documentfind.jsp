@@ -95,7 +95,7 @@
 <body>
 
 <h1> Recherche de document</h1>
-<form action="ChercherByID" method="get">
+<form action="ChercherById" method="get">
 		<table class="table table-striped table-dark">
 			<tr>
 				<td><input type="text" placeholder="Id" name="docID"></td>
